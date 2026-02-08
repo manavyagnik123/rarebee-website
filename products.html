@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | RareBee Lifesciences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CPlus+Jakarta+Sans:500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <img src="./logo.jpeg" alt="RareBee Lifesciences" />
+        </div>
+        <nav class="main-nav" id="siteNav">
+          <a href="about.html">About us</a>
+          <a href="products.html">Products</a>
+          <a href="business.html">Our business</a>
+          <a href="global-presence.html">Global presence</a>
+          <a href="units.html">Our units</a>
+          <a href="contact.html">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-overlay" data-nav-close></div>
+    </header>
+
+    <section class="section stats-section reveal">
+      <div class="container">
+        <div class="section-title">
+          <h2>Products</h2>
+        </div>
+        <p class="hero-sub">
+          All of this and more reflects the growth and success of Remus Pharmaceuticals
+        </p>
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <span class="stat-value">1000</span>
+            <span class="stat-label">Group Company Employees</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value">150</span>
+            <span class="stat-label">Million dollars in group revenue for fiscal year 2023</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value">1200</span>
+            <span class="stat-label">CTD dossier</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value">40</span>
+            <span class="stat-label">Countries</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer reveal">
+      <div class="container footer-content">
+        <div>
+          <h4>RareBee Lifesciences</h4>
+          <p>Dedicated Healthcare Solutions for a Healthier World</p>
+        </div>
+        <p>Contact us</p>
+      </div>
+    </footer>
+
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/9107929999857"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat on WhatsApp"
+    >
+      <span>WhatsApp</span>
+    </a>
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navOverlay = document.querySelector(".nav-overlay");
+      const navLinks = document.querySelectorAll(".main-nav a");
+
+      const closeNav = () => {
+        document.body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      };
+
+      const openNav = () => {
+        document.body.classList.add("nav-open");
+        navToggle.setAttribute("aria-expanded", "true");
+      };
+
+      navToggle.addEventListener("click", () => {
+        if (document.body.classList.contains("nav-open")) {
+          closeNav();
+        } else {
+          openNav();
+        }
+      });
+
+      navOverlay.addEventListener("click", closeNav);
+      navLinks.forEach((link) => link.addEventListener("click", closeNav));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeNav();
+        }
+      });
+
+      const revealItems = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
+  </body>
+</html>

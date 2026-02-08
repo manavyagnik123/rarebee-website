@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./product.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+
+  <link rel="stylesheet" href="./css/bg-corousel.css">
+  <title>Document</title> 
+
+</head> 
+
+<style>
+  #More {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollLink = document.getElementById("scrollLink");
+    const scrollTarget = document.getElementById("touch");
+
+    scrollLink.addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default link behavior
+
+      // Calculate the target scroll position (adjust the value as needed)
+      const targetPosition = scrollTarget.offsetTop;
+
+      // Perform smooth scrolling animation
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+    });
+  });
+
+
+
+
+
+
+
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+  }
+</script>
+<script>
+function menu(){
+  if(screen.width<800){
+    togogle_menu();
+
+  }
+}
+
+ 
+  function myFunction() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("More");
+    var btnText = document.getElementById("MyBtn");
+
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Read more";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "Read less";
+      moreText.style.display = "inline";
+      moreText.style.overflow = "auto";
+    }
+  }
+</script>
+
+<body>
+  <div class="navbar-container">
+
+    <div class="logo-container">
+      <img src="./images/logo-1.png" alt="">
+
+      <button class="hamburger" onclick="togogle_menu()">
+        <div id="line1"></div>
+        <div id="line2"></div>
+        <div id="line3"></div>
+      </button>
+
+
+
+
+
+
+    </div>
+    </label>
+    <ul id="menuList">
+
+      <li><a href="./index.html">About Us</a></li>
+      <li><a href="#Quality"  onclick=menu()>Quality</a></li>
+      <li><a href="./product.html" onclick=menu()>Products</a></li>
+      <li><a href="./productgallery.html" onclick=menu()>Product Gallery</a></li>
+      <li><a href="#c" onclick=menu()> Partner With Us</a></li>
+      <li><a href="#f" onclick=menu() id="touchme">Contact Us</a></li>
+
+
+
+
+    </ul>
+
+  </div>
+  <div class="corousel-container" id="co">
+
+    <div class="cb-main-container" id="about">
+      <ul class="cb-slideshow">
+        <li>
+          <span><img src="./images/corousel1/1.jpg" class="image-1" alt=""></span>
+          <div>
+            <h1>Top Quality</h1>
+            
+
+          </div>
+        </li>
+        <li>
+          <span><img src="./images/corousel1/2.jpg" alt="" class="image-2"></span>
+          <div>
+            <h1>Affordable Rates</h1>
+          
+
+        </li>
+        <li>
+          <span><img src="./images/corousel1/4.jpg" alt="" class="image-3"></span>
+          <div>
+            <h1>Years of Experience</h1>
+            
+
+          </div>
+        </li>
+        <li>
+          <span><img src="./images/img4.jpg" alt="" class="image-4"></span>
+          <div>
+            <h1>Monopoly Rights</h1>
+            
+
+
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="blank-space"> </div>
+
+
+
+
+  <div class="section-1">
+    <div class="row1">
+      <div class="col1">
+        <img src="./images/images.jpg" alt="">
+
+      </div>
+
+
+      <div class="col2">
+
+        <div class="col2-heading">
+          <h1>About Us</h1>
+        </div>
+
+
+        <div class="col2-text">
+          <p>RareBee Lifesciences Is PCD Pharma Company Based In Ahmedabad,Gujarat.
+            <br />
+
+            we have vision of becoming a recognized name in Pharmaceuticals field in short span of time. Today RareBee
+            Lifesciences Is one of he fastest growing Pharmaceuticals company.
+            <br />
+
+            RareBee Lifesciences is committed for its mission of Healthy Citizen
+            by bringing all kinds of pharmaceutical drugs in the reach of global citizen.
+            <br />
+
+
+
+            <span id="dots"></span>
+
+            <span id="More">
+              We supply the formulation in every possible forms such as tablets, capsules injectable oral suspension
+              ,syrups ,powder etc. for internal consumption and creams, lotions, Ointments, gels for external use.
+
+              <br />
+              We aim to employ the years of experience we possess to ensure that all our distributors are always ready
+              for any kind of demand. Even though we are already present in all the major cities across the countries,
+              we aim to reach even the most remote villages so that no one has to suffer from the lack of
+              proper medication.
+              <br />
+
+
+
+
+
+
+          </p>
+          </span>
+
+
+          <button onclick="myFunction()" id="MyBtn">Read more</button>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="help">
+
+    <div class="row2">
+      <div class="cr1">
+        <div class="cr1-image"><img src="./images/corousel1/Experience.png"></div>
+        <div class="cr1-heading">
+          <h2>Experience</h2>
+
+          <div class="cr1-text">We have been in the pharmaceutical field for over fifteen years and in a way we
+            understand how the pharma companies work in India.
+          </div>
+        </div>
+      </div>
+
+      <div class="cr1">
+        <div class="cr1-image"> <img src="./images/corousel1/download.png" width="110px" height="110px"></div>
+        <div class="cr1-heading">
+          <h2>Affordable</h2>
+
+          <div class="cr1-text">As a small business owner, you might often struggle to find affordable pharma
+            products.All our products are reasonable, and you can order in bulk whenever necessary.
+          </div>
+        </div>
+      </div>
+
+      <div class="cr1">
+        <div class="cr1-image"> <img src="./images/corousel1/support.svg" width="110x" height="110px"></div>
+        <div class="cr1-heading">
+          <h2> Quality</h2>
+
+          <div class="cr1-text">
+            All Our Product Are Manufactured Under GMP, WHO Certified Plants and we ensure that they are of the highest
+            quality.
+
+          </div>
+        </div>
+      </div>
+
+      <div class="cr1">
+        <div class="cr1-image"><img src="./images/corousel1/network.png" width="110x" height="110px"></div>
+        <div class="cr1-heading">
+
+          <h2>Extensive Reach</h2>
+          <div class="cr1-text">We have a network of more than one thousand pharmacies all over the country. We have a
+            network of more than one thousand pharmacies all over the country.
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="section-1" id="Quality">
+      <div class="row6">
+        <div class="col6">
+          <img src="./images/QUALITY.jpg" alt="">
+
+        </div>
+        <div class="col7">
+
+          <div class="col7-heading">
+            <h1>Quality</h1>
+          </div>
+
+
+          <div class="col7-text">
+
+            <p class="quality">At RareBee Lifesciences, maintaining highest levels of quality helps us deliver
+              excellence in everything we do reflecting not only in robust growth but also in personal development and
+              enhanced management abilities.
+              <br />
+              <br />
+              All of our pharma products undergo a multi-step quality Assurance testing procedure before sending it out
+              to our distributors. We believe in providing high-quality products to the population of India, so we do
+              not compromise with quality in any way. If any of the products do not pass our quality testing, we
+              immediately get rid of them safely so as not to effect the environment. We promise to give top-quality
+              pharmaceutical products, and we work to deliver our promise.
+              <br />
+              <br />
+              We Manufacturing Our Products Under WHO,GMP Certified Units And We Assured Our Quality.
+            </p>
+
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="sli" id="p">
+      <div class="sl1-heading" id="">
+        <h2> See Our Products</h2>
+      </div>
+      <div class="sl1-heading">
+        <p class="t"> Take some time to learn about our company, what sets us apart from other companies and why we're
+          one of your best options for success in Ahmedabad!</p>
+      </div>
+      <div class="sl1-heading">
+        <p> We're a pharma company in Gujarat that uses innovative technologies and modernised machines for product
+          manufacturing. With years of experience, today we provide you with a broad category drugs - all from one
+          source!</p>
+      </div>
+      <div class="sl1-heading"><a href="./product.html"> See All Product</a></div>
+    </div>
+    <div class="img-container">
+      <div class="mySlides" style="display: block;">
+       
+        <img src="./images/hp1.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+  
+        <img src="./images/hp2.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+
+        <img src="./images/hp3.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+ 
+        <img src="./images/hp4.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+  
+        <img src="./images/hp5.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+
+        <img src="./images/hp6.jpg" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+      <div class="caption-container">
+        <!-- <p id="caption"></p> -->
+      </div>
+
+      <div class="row4" id="c" >
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+        </div>
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp2.jpg" style="width:100%" onclick="currentSlide(2)"
+            alt="Cinque Terre">
+        </div>
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp3.jpg" style="width:100%" onclick="currentSlide(3)"
+            alt="Mountains and fjords">
+        </div>
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp4.jpg" style="width:100%" onclick="currentSlide(4)"
+            alt="Northern Lights">
+        </div>
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp5.jpg" style="width:100%" onclick="currentSlide(5)"
+            alt="Nature and sunrise">
+        </div>
+        <div class="column4">
+          <img class="demo cursor" src="./images/hp6.jpg" style="width:100%" onclick="currentSlide(6)"
+            alt="Snowy Mountains">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<div class=h>
+
+    <div class="partner-heading">
+      <div class="real-heading">Partner With Us</div>
+    </div>
+    <div class="cardrow">
+      <div class="card">
+        <div class="monpoly-container">
+          <div class="monopoly"><i class="fa fa-check check" style="font-size: 28px; "></i> </div>
+          <div class="monopoly-heading">Monopoly</div>
+        </div>
+
+        <div class="monopoly-text">We Give Monopoly Rights To Our Distributors Which Gives Competitive Advantage For Their Growth.</div>
+
+
+      </div>
+      <div class="card">
+        <div class="monpoly-container">
+          <div class="monopoly"><i class="fa fa-file-text" style="font-size:28px"></i> </div>
+          <div class="monopoly-heading">Article</div>
+        </div>
+
+        <div class="monopoly-text">We Arrange Gift Articles And Trips For Our Distributors On Target Basis By This They Work Hard And Achieve their Goals.
+        </div>
+      </div>
+      <div class="card">
+        <div class="monpoly-container">
+          <div class="monopoly"><i class="fa fa-user-md" style="font-size:38px"></i></i> </div>
+          <div class="monopoly-heading">Support</div>
+        </div>
+
+        <div class="monopoly-text">We Support Our Distributors by Giving Product card, Brochure, Reminder card & Etc For Doctors. </div>
+      </div>
+    </div>
+  </div>
+  <div class="partner-with-us-container">
+    <div class="img-container-1"><img src="./images/partnerwithus.jpg" width="250px" height="200px"></div>
+    <div class="partner-with-text">
+      <p>
+        RareBee Lifesciences, focus on providing high quality products at affordable price to our customers with
+        dedicated customer service.
+        <br />
+        <br />
+
+
+
+        We operate on monopoly rights business strategy which gives our business associates a competitive advantage for
+        their growth. We will be providing promotional material to help our business associates for better reach in the
+        market. We empower our business associates with all the resources that required to market our products, maximize
+        sales and capitalize on upcoming opportunities. We have also an incentive scheme that gives our business
+        associate to earn points and redeem at the end of the year which includes exclusive range of gifts and a foreign
+        trip.
+        <br />
+        <br />
+
+
+        By pooling the talents of our science and business teams, we have engaged in numerous collaborations with a
+        range of companies and research institutions. We look to build upon our existing strengths as well as to create
+        new areas of expertise.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+  <div class="section-2" id="Contact">
+    <div class="contact-container">
+
+
+
+      <div class="container " id="touch">
+        <form class="form-container">
+          <h1> Touch With Us</h1>
+
+          <input type="text" id="fname" name="firstname" placeholder="Your Name">
+
+          <input type="number" id="fname1" name="firstname" placeholder="Write Contact No Here..">
+
+
+
+
+
+
+          <textarea id="subject" name="subject" placeholder="Write Your Message Here..."
+            style="height:200px"></textarea>
+
+          <input type="submit" value="Submit" class="submit-btn">
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+  <div id="Contact2">
+    <div class="form-container2">
+      <div class="form1">
+        <form class="form-container-3">
+
+          <label style="font-size: xx-large; color: white;">Touch With Us</label><br />
+          <br />
+
+
+
+          <input type="text" id="fname" name="fname" placeholder="Name"><br>
+          <input type="number" id="fname" name="fname" placeholder="Contact No"><br>
+
+          <input type="text" id="lname" name="lname" style="height: 100px;" placeholder="Message"><br><br>
+          <input type="submit" value="Submit" style="margin-left: 120px;">
+        </form>
+      </div>
+      <div class="map-container2"><iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.531038014358!2d72.53775607364275!3d23.11425701290367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8340ebe5d7cb%3A0x4b3ffb517276bef6!2sGanesh%20Glory%2011!5e0!3m2!1sen!2sin!4v1692529061795!5m2!1sen!2sin"
+          width="400" height="405" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+
+  </div>
+
+
+  <!-- <div class="whatsapp-icon"><a href="https://wa.me/9898555847"><i class="fa fa-whatsapp" aria-hidden="true"></i></div></a> -->
+  <footer>
+    <div class="footer-container" id="f">
+      <div class="footer-text">
+        <div> <i class="fa fa-map-marker fconfing" style="font-size: 28px;" aria-hidden="true"></i><p>A-301, Ganesh
+            Glory 11, Jagatpur Road, Opp.SG Highway, Ahmedabad - 382470 (Guj) INDIA</p></div>
+
+
+        <!-- <div>A-301,Ganesh Glory 11,Jagatpur Road,Opp.SG Highway,Ahmedabad - 382470 (Guj.) INDIA</div> -->
+        <div> <i class="fa fa-phone fconfing" style="font-size:28px;color:white" aria-hidden="true"></i><p>+91 9898555847</p>
+        </div>
+        <div> <i class="fa fa-phone fconfing" style="font-size:28px;color:white"></i><p> +91 9898525796</p>
+        </div>
+
+
+        <div> <i class="fa fa-envelope fconfing" style="font-size:28px;color:white;"></i><p> rarebeelifesciences@yahoo.com</p>
+           
+
+        </div>
+        <div><img src="./images/makeinindia.jpg" alt=""></div>
+      </div>
+      <div class="footer-text"><a>Useful Links</a>
+        <p> <a href="#about">About Us</a></p>
+        <p> <a href="#Quality">Quality</a></p>
+        <p> <a href="./product.html">Products</a></p>
+        <p> <a href="./productgallery.html">Products Gallery</a></p>
+        <p> <a href="#c"> Partner With Us</a></p>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </footer>
+
+
+  <script src="./js/toggle-menu.js"></script>
+  <div class="copyrigth"> © Copyright 2023 RareBee Lifesciences </div>
+
+</body>
+
+</html>
