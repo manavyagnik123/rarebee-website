@@ -110,11 +110,6 @@ a {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
 }
 
-.nav-toggle {
-  background: transparent;
-  border-color: rgba(214, 225, 242, 0.6);
-}
-
 .main-nav a {
   transition: color 0.2s ease;
 }
@@ -134,10 +129,10 @@ a {
 }
 
 .nav-toggle {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  border: 1px solid rgba(214, 225, 242, 0.6);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
   background: transparent;
   display: none;
   align-items: center;
@@ -145,6 +140,11 @@ a {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid rgba(27, 79, 163, 0.55);
+  outline-offset: 4px;
 }
 
 .nav-toggle span {
