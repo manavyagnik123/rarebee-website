@@ -27,7 +27,7 @@
           <a href="#business">Our business</a>
           <!-- Updated to link to separate page -->
           <a href="products.html">Product list</a>
-          <a href="#our-units">Our unit</a>
+          <a href="#our-units">Facility</a>
           <a href="#global-presence">Global presence</a>
           <a href="#contact-us">Contact us</a>
         </nav>
@@ -168,12 +168,27 @@
         <div>
           <h3>Facility</h3>
           <p>
-            The Rarebee Group has its own manufacturing unit named Rarebee Pharma Pvt. Ltd. Rarebee Pharma manufactures syrups and ointments, and it is also planning to produce capsules and tablets.
+            The Rarebee Group has its own manufacturing facility named Rarebee Pharma Pvt. Ltd. Rarebee Pharma manufactures syrups and ointments, and it is also planning to produce capsules and tablets.
           </p>
           <p>
             All the products are developed by expert pharmacist with required evaluation of drug product molecule for mainly oral solid dosage forms and other dosage forms.
           </p>
-          <a href="units.html" class="primary-btn" style="display: inline-block; margin-top: 20px;">Read More</a>
+          <div class="facility-cta">
+            <a class="facility-link" href="units.html" aria-label="Explore facility details">
+              <span>Explore facility</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  fill="currentColor"
+                  d="M13.5 5.5a1 1 0 0 1 1.41 0l5.1 5.1a1 1 0 0 1 0 1.41l-5.1 5.1a1 1 0 1 1-1.41-1.41l3.4-3.4H4a1 1 0 1 1 0-2h12.9l-3.4-3.4a1 1 0 0 1 0-1.41Z"
+                />
+              </svg>
+            </a>
+            <div class="facility-tags" aria-label="Facility highlights">
+              <span>Manufacturing premises</span>
+              <span>Utilities</span>
+              <span>Quality systems</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -212,19 +227,24 @@
     </section>
 
     <footer id="contact-us" class="site-footer reveal">
-      <div class="container">
-        <div class="section-title center" style="text-align: center;">
-          <h2>Contact us</h2>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <h4>RareBee Lifesciences</h4>
+          <p>Dedicated Healthcare Solutions for a Healthier World</p>
         </div>
-        <div class="link-grid" style="text-align: center; justify-content: center;">
-          <a href="tel:9107929999857">+91 079 29999857</a>
-          <a href="mailto:rarebeelifesciences@yahoo.com">rarebeelifesciences@yahoo.com</a>
+        <div class="footer-links" aria-label="Quick links">
+          <h4>Quick links</h4>
+          <a class="footer-link" href="#about-us">About</a>
+          <a class="footer-link" href="products.html">Products</a>
+          <a class="footer-link" href="#our-units">Facility</a>
+          <a class="footer-link" href="#global-presence">Global presence</a>
         </div>
-        <div class="footer-content">
-          <div>
-            <h4>RareBee Lifesciences</h4>
-            <p>Dedicated Healthcare Solutions for a Healthier World</p>
-          </div>
+        <div class="footer-contact" aria-label="Contact information">
+          <h4>Contact</h4>
+          <a class="footer-link" href="tel:9107929999857">+91 079 29999857</a>
+          <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com"
+            >rarebeelifesciences@yahoo.com</a
+          >
         </div>
       </div>
     </footer>
@@ -279,7 +299,12 @@
         }
       });
 
-      const revealItems = document.querySelectorAll(".reveal");
+      const revealItems = Array.from(document.querySelectorAll(".reveal"));
+      revealItems.forEach((item, index) => {
+        const delay = Math.min(index * 70, 420);
+        item.style.setProperty("--reveal-delay", `${delay}ms`);
+      });
+
       const revealObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -290,7 +315,7 @@
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.2 }
       );
 
       revealItems.forEach((item) => revealObserver.observe(item));

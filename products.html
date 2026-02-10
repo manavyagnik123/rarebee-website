@@ -56,17 +56,23 @@
       <span>WhatsApp</span>
     </a>
     <script>
-      const revealItems = document.querySelectorAll(".reveal");
+      const revealItems = Array.from(document.querySelectorAll(".reveal"));
+      revealItems.forEach((item, index) => {
+        const delay = Math.min(index * 70, 420);
+        item.style.setProperty("--reveal-delay", `${delay}ms`);
+      });
+
       const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("in-view");
-              observer.unobserve(entry.target);
+            } else {
+              entry.target.classList.remove("in-view");
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.2 }
       );
 
       revealItems.forEach((item) => revealObserver.observe(item));
