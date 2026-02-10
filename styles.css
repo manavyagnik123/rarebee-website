@@ -20,6 +20,7 @@ body {
   background: var(--white);
   line-height: 1.6;
 }
+
 .hero-copy h1,
 .section-title h2,
 .hero-panel h3,
@@ -244,7 +245,6 @@ a {
   color: var(--secondary);
 }
 
-
 .hero-sub {
   margin-bottom: 12px;
   color: var(--text-muted);
@@ -347,36 +347,6 @@ a {
   gap: 24px;
 }
 
-.business-card {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  background: #ffffff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(17, 31, 57, 0.12);
-}
-
-.business-card-content {
-  padding: 26px;
-}
-
-.business-card-content h3 {
-  color: var(--primary-dark);
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.business-card-content p {
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.business-card-image {
-  background: linear-gradient(140deg, rgba(27, 79, 163, 0.12), rgba(106, 191, 75, 0.2)),
-    url("photo2.png") center/cover no-repeat;
-  min-height: 180px;
-}
-
 .business-gradient {
   background: linear-gradient(135deg, #1b4fa3 0%, #6abf4b 100%);
   border-radius: 24px;
@@ -390,58 +360,89 @@ a {
 .business-gradient-left h3 {
   font-size: 24px;
   margin-bottom: 8px;
+  color: #ffffff;
 }
 
 .business-gradient-left p {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
 }
 
 .business-mantra {
-  margin-top: 12px;
-  font-weight: 600;
-  color: #ffffff;
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff9e6;           /* light cream for emphasis */
 }
 
 .business-tagline {
   margin-top: 6px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
 }
 
 .business-gradient-right {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .business-pill {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  padding: 16px;
+  padding: 20px;
+  backdrop-filter: blur(4px);
 }
 
 .business-pill h4 {
   font-size: 18px;
-  margin-bottom: 8px;
-  color: #ffffff;
+  margin-bottom: 12px;
 }
 
-.business-pill ul {
-  margin: 0;
-  padding-left: 18px;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13px;
+/* ── Vision & Mission specific colors ───────────────────── */
+
+.vision-pill h4 {
+  color: #fff9e6;           /* bright warm white / cream — makes Vision stand out */
+  font-weight: 700;
+}
+
+.vision-pill p {
+  color: #fffde7;           /* very light warm tint */
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.mission-pill h4 {
+  color: #e3f2fd;           /* light cyan-white — clean and fresh */
+  font-weight: 700;
+}
+
+.mission-pill p {
+  color: #f0f8ff;           /* alice blue / pure light white */
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 @media (max-width: 900px) {
-  .business-card {
-    grid-template-columns: 1fr;
-  }
-
   .business-gradient {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .business-pill {
+    padding: 18px;
+  }
+
+  .vision-pill p,
+  .mission-pill p {
+    font-size: 13.5px;
   }
 }
+
+/* Rest of your original CSS remains unchanged below */
 
 .card-grid {
   display: grid;
@@ -533,6 +534,7 @@ a {
 .contact-section {
   background: #f8fbff;
 }
+
 .quote-section {
   background: #f2f8ff;
 }
