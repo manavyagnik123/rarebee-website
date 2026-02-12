@@ -110,6 +110,60 @@
       @media (max-width: 600px) {
         .footer-col { width: 100%; }
       }
+
+      /* Career hero: clean, reference-style */
+      .career-hero-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 12px;
+      }
+
+      /* Career content section */
+      .career-text-block {
+        max-width: 780px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+      .career-text-block h2 {
+        font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 20px;
+      }
+      .career-text-block p {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 14px;
+      }
+
+      /* Career form box */
+      .career-form-box {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f8fafd;
+        border-radius: 16px;
+        padding: 40px 36px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      }
+      .career-form-title {
+        font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        .career-form-box {
+          padding: 28px 20px;
+        }
+      }
     </style>
   </head>
   <body class="career-page">
@@ -119,32 +173,37 @@
       <div class="career-hero-bg"></div>
       <div class="career-hero-overlay"></div>
       <div class="career-hero-inner">
+        <p class="career-hero-eyebrow">RareBee Group</p>
         <h1>Careers</h1>
-        <h2 class="career-hero-tagline">Work with the Best</h2>
-        <p class="career-hero-intro">
-          At RareBee Lifesciences, we believe that the best talents are not found but nurtured. We recruit dedicated individuals of promise and support their journey towards excellence. If you identify with our mission and want to build your career with a leading name in pharma, we welcome your application.
-        </p>
-        <p class="career-hero-cta">Apply today!</p>
       </div>
     </section>
 
-    <section class="career-apply reveal">
-      <div class="career-apply-bg"></div>
-      <div class="career-apply-inner">
-        <h2 class="career-apply-title">Apply Now</h2>
+    <section class="career-content section reveal">
+      <div class="container">
+        <div class="career-text-block">
+          <h2>Work with the Best</h2>
+          <p>
+            At RareBee, we believe that the best talents are not found but nurtured. This is why we pay special emphasis on recruiting dedicated individuals of promise and shaping their journey towards excellence here at RareBee.
+          </p>
+          <p>
+            If you identify with our mission and vision, and want to establish your career with one of the best names in the Pharma sector, Rarebee Group is waiting for your talents &amp; long term association. Apply today!
+          </p>
+        </div>
+
         <div class="career-form-box">
+          <h3 class="career-form-title">Apply Now</h3>
           <form id="careerForm" class="career-form" action="/api/career" method="post" enctype="multipart/form-data">
             <div class="career-field">
               <label for="career-name">Name <span class="required">*</span></label>
               <input type="text" id="career-name" name="name" required placeholder="Your full name" autocomplete="name" />
             </div>
             <div class="career-field">
-              <label for="career-phone">Phone number <span class="required">*</span></label>
-              <input type="tel" id="career-phone" name="phone" required placeholder="e.g. +91 079 29999857" autocomplete="tel" />
-            </div>
-            <div class="career-field">
               <label for="career-email">Email <span class="required">*</span></label>
               <input type="email" id="career-email" name="email" required placeholder="your@email.com" autocomplete="email" />
+            </div>
+            <div class="career-field">
+              <label for="career-phone">Phone number <span class="required">*</span></label>
+              <input type="tel" id="career-phone" name="phone" required placeholder="e.g. +91 079 29999857" autocomplete="tel" />
             </div>
             <div class="career-field">
               <label for="career-cv">CV (Upload)</label>
