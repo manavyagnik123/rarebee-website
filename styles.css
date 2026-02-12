@@ -470,6 +470,7 @@ a {
 .about-summary .section-subtitle {
   text-align: left;
   max-width: none;
+  color: var(--text-dark); /* match Facility section */
 }
 
 @media (max-width: 900px) {
@@ -509,7 +510,11 @@ a {
   /* Body text / paragraphs left-aligned */
   .section-title.center,
   .about-summary,
-  .about-summary .section-subtitle,
+  .about-summary .section-subtitle {
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+
   .contact-grid,
   .contact-grid p,
   #our-units .contact-grid,
@@ -901,7 +906,7 @@ a {
 }
 
 .site-footer {
-  background: linear-gradient(135deg, #071b3a 0%, #0b2a53 55%, #0a2446 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #eef5ff;
   padding: 16px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1102,15 +1107,13 @@ footer.reveal {
     right: 0;
     height: 100vh;
     width: min(320px, 82vw);
-    background: rgba(11, 36, 74, 0.75);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: var(--primary);
     flex-direction: column;
     padding: 60px 24px 24px;
-    gap: 18px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    box-shadow: -20px 0 40px rgba(17, 31, 57, 0.22);
+    gap: 36px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
     transform: translateX(110%);
     transition: transform 0.3s ease;
     z-index: 6;
@@ -1138,10 +1141,24 @@ footer.reveal {
     color: #ffffff;
     font-size: 20px;
     font-weight: 700;
+    text-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .main-nav a:hover {
     color: var(--secondary);
+  }
+
+  .main-nav a:focus {
+    outline: none;
+  }
+
+  .main-nav a:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
   }
 }
 
