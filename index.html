@@ -19,6 +19,28 @@
       body {
         font-family: "Poppins", sans-serif;
       }
+      .footer-contact-columns {
+        display: flex;
+        gap: 40px;
+      }
+      .footer-contact-col h4 {
+        color: #ffffff;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      .footer-contact-col .footer-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      @media (max-width: 1100px) {
+        .footer-grid { flex-wrap: wrap; }
+        .footer-contact-columns { width: 100%; justify-content: space-between; margin-top: 20px; }
+      }
+      @media (max-width: 760px) {
+        .footer-contact-columns { flex-direction: column; gap: 30px; }
+        .footer-contact-col { min-width: 100%; }
+      }
     </style>
   </head>
   <body>
@@ -70,20 +92,26 @@
       <div class="container">
         <div class="section-title center about-summary">
           <h2>About Us</h2>
-          <p class="section-subtitle" style="text-align: justify;">
+
+               <p class="section-subtitle" style="text-align: center;justify-content: center;">
+            With humble beginnings in 2003 as a wholesale pharma distributor in Gujarat, Rarebee Lifesciences started as a pharma company in 2021 with 15 products and has since grown to over 150 finished products in the market. By 2026, Rarebee has established its first pharma unit, Rarebee Pharma Pvt. Ltd.
+          </p>
+          <p class="section-subtitle" style="text-align: center;justify-content: center;">
             Rarebit Lifesciences is one of the most promising and fast-growing companies
             in the global healthcare landscape. Established in 2021, we have built a
             strong foundation rooted in innovation, quality, and trust, delivering
             high-performance pharmaceutical products that improve lives and support
             healthier communities.
           </p>
-          <p class="section-subtitle" style="text-align: justify;">
+          <p class="section-subtitle"  style="text-align: center;justify-content: center;">
             With a proven legacy of excellence, Rarebee group continues to set
             benchmarks in providing reliable and effective healthcare solutions. Our
             team dedicated professionals drives our consistent year-on-year growth,
             reflecting our commitment to sustainable progress and positive global
             impact.
           </p>
+
+        
         </div>
       </div>
     </section>
@@ -218,8 +246,44 @@
     <footer id="contact-us" class="site-footer reveal">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <h4>RareBee Lifesciences</h4>
-          <p>Dedicated Healthcare Solutions for a Healthier World</p>
+          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 150px; height: auto;" />
+          <div class="footer-contact-columns">
+          <div class="footer-contact-col">
+            <h4>For Domestic</h4>
+            <a class="footer-link" href="tel:+919898555847">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              +91 9898555847
+            </a>
+            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              rarebeelifesciences@yahoo.com
+            </a>
+          </div>
+          
+          <div class="footer-contact-col">
+            <h4>For Export</h4>
+            <a class="footer-link" href="tel:+919898525796">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              +91 9898525796
+            </a>
+            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              rarebeelifesciences@yahoo.com
+            </a>
+          </div>
+
+          <div class="footer-contact-col">
+            <h4>For Manufacture</h4>
+            <a class="footer-link" href="tel:+9107929999857">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              +91 079 29999857
+            </a>
+            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              rarebeelifesciences@yahoo.com
+            </a>
+          </div>
+        </div>
         </div>
         <div class="footer-links" aria-label="Quick links">
           <h4>Quick links</h4>
@@ -229,13 +293,8 @@
           <a class="footer-link" href="#global-presence">Global presence</a>
           <a class="footer-link" href="career.html">Careers</a>
         </div>
-        <div class="footer-contact" aria-label="Contact information">
-          <h4>Contact</h4>
-          <a class="footer-link" href="tel:9107929999857">+91 079 29999857</a>
-          <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com"
-            >rarebeelifesciences@yahoo.com</a
-          >
-        </div>
+        
+       
       </div>
     </footer>
 
