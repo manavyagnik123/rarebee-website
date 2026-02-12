@@ -1,3 +1,5 @@
 meet-stactic-website/
 node_modules/
-dist/   
+dist/
+.env
+uploads/   

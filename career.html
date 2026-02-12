@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers - RareBee Lifesciences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CPlus+Jakarta+Sans:500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="career-page">
+    <a href="index.html" class="career-back">← Back to site</a>
+
+    <section class="career-hero reveal">
+      <div class="career-hero-bg"></div>
+      <div class="career-hero-overlay"></div>
+      <div class="career-hero-inner">
+        <h1>Careers</h1>
+        <h2 class="career-hero-tagline">Work with the Best</h2>
+        <p class="career-hero-intro">
+          At RareBee Lifesciences, we believe that the best talents are not found but nurtured. We recruit dedicated individuals of promise and support their journey towards excellence. If you identify with our mission and want to build your career with a leading name in pharma, we welcome your application.
+        </p>
+        <p class="career-hero-cta">Apply today!</p>
+      </div>
+    </section>
+
+    <section class="career-apply reveal">
+      <div class="career-apply-bg"></div>
+      <div class="career-apply-inner">
+        <h2 class="career-apply-title">Apply Now</h2>
+        <div class="career-form-box">
+          <form id="careerForm" class="career-form" action="/api/career" method="post" enctype="multipart/form-data">
+            <div class="career-field">
+              <label for="career-name">Name <span class="required">*</span></label>
+              <input type="text" id="career-name" name="name" required placeholder="Your full name" autocomplete="name" />
+            </div>
+            <div class="career-field">
+              <label for="career-phone">Phone number <span class="required">*</span></label>
+              <input type="tel" id="career-phone" name="phone" required placeholder="e.g. +91 079 29999857" autocomplete="tel" />
+            </div>
+            <div class="career-field">
+              <label for="career-email">Email <span class="required">*</span></label>
+              <input type="email" id="career-email" name="email" required placeholder="your@email.com" autocomplete="email" />
+            </div>
+            <div class="career-field">
+              <label for="career-cv">CV (Upload)</label>
+              <input type="file" id="career-cv" name="cv" accept=".pdf,.doc,.docx" aria-describedby="cv-hint" />
+              <span id="cv-hint" class="career-hint">PDF or DOC/DOCX, max 5 MB</span>
+            </div>
+            <div class="career-actions">
+              <button type="submit" class="career-submit-btn" id="careerSubmit">Send</button>
+              <p id="careerMessage" class="career-message" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const revealItems = Array.from(document.querySelectorAll(".reveal"));
+      revealItems.forEach((item, index) => {
+        item.style.setProperty("--reveal-delay", `${Math.min(index * 70, 420)}ms`);
+      });
+      const revealObserver = new IntersectionObserver(
+        (entries) => entries.forEach((e) => e.target.classList.toggle("in-view", e.isIntersecting)),
+        { threshold: 0.15 }
+      );
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const form = document.getElementById("careerForm");
+      const submitBtn = document.getElementById("careerSubmit");
+      const messageEl = document.getElementById("careerMessage");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        messageEl.textContent = "";
+        messageEl.className = "career-message";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+
+        const formData = new FormData(form);
+        try {
+          const res = await fetch("/api/career", { method: "POST", body: formData });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.success) {
+            messageEl.textContent = data.message || "Application submitted successfully.";
+            messageEl.className = "career-message career-message--success";
+            form.reset();
+          } else {
+            messageEl.textContent = data.message || "Something went wrong. Please try again.";
+            messageEl.className = "career-message career-message--error";
+          }
+        } catch (err) {
+          messageEl.textContent = "Network error. Please check your connection and try again.";
+          messageEl.className = "career-message career-message--error";
+        }
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send";
+      });
+    </script>
+  </body>
+</html>
