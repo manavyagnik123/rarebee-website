@@ -481,36 +481,44 @@ a {
   }
 }
 
-/* ── Mobile: force left-align all text ──────────────────── */
+/* ── Mobile: force left-align body text, keep headings centered ── */
 @media (max-width: 768px) {
-  .section-title.center,
+  /* Headings stay centered */
   .section-title.center h2,
-  .about-summary,
   .about-summary h2,
+  #global-presence .section-title h2,
+  .contact-grid h3,
+  .business-pill h4,
+  .quote,
+  .quote-section .quote {
+    text-align: center !important;
+  }
+
+  /* Read More: center aligned */
+  .facility-cta {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .facility-cta .facility-link {
+    text-align: center !important;
+  }
+
+  /* Body text / paragraphs left-aligned */
+  .section-title.center,
+  .about-summary,
   .about-summary .section-subtitle,
   .contact-grid,
-  .contact-grid h3,
   .contact-grid p,
   #our-units .contact-grid,
-  .quote,
-  .quote-section,
-  .quote-section .quote,
   #global-presence .section-title,
-  #global-presence .section-title h2,
   .badge-grid,
   .badge-grid span,
   .business-gradient,
   .business-pill,
-  .business-pill h4,
-  .business-pill p,
-  .facility-cta,
-  .facility-cta .facility-link {
+  .business-pill p {
     text-align: left !important;
     justify-content: flex-start !important;
-  }
-
-  .facility-cta {
-    align-items: flex-start !important;
   }
 
   .badge-grid {
