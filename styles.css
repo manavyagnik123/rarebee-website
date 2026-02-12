@@ -140,6 +140,7 @@ a {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
+  position: relative;
 }
 
 .nav-toggle:focus-visible {
@@ -156,16 +157,19 @@ a {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.nav-open .nav-toggle span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.nav-toggle .nav-toggle-x {
+  display: none;
+  position: absolute;
+  color: #0f2f5b;
 }
 
-.nav-open .nav-toggle span:nth-child(2) {
+.nav-open .nav-toggle span {
   opacity: 0;
+  pointer-events: none;
 }
 
-.nav-open .nav-toggle span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.nav-open .nav-toggle .nav-toggle-x {
+  display: block;
 }
 
 .nav-overlay {
@@ -1112,7 +1116,7 @@ footer.reveal {
     padding: 60px 24px 24px;
     gap: 36px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
     transform: translateX(110%);
     transition: transform 0.3s ease;
@@ -1123,8 +1127,43 @@ footer.reveal {
     transform: translateX(0);
   }
 
+  .nav-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-close-btn svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-close-btn:hover {
+    color: var(--secondary);
+  }
+
+  .nav-close-btn:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 4px;
+  }
+
   .nav-toggle {
     display: inline-flex;
+  }
+
+  .nav-open .nav-toggle .nav-toggle-x {
+    color: #ffffff;
   }
 
   .brand img {
@@ -1143,7 +1182,7 @@ footer.reveal {
     font-weight: 700;
     text-shadow: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
   }
