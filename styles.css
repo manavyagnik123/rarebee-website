@@ -334,10 +334,12 @@ a {
   text-align: left; /* make paragraphs span left-to-right */
 }
 
+/* About Us: match Facility section font/style */
 .about-summary .section-subtitle {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
 }
 
 .about-summary .section-subtitle:first-of-type {
