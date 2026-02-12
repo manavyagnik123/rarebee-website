@@ -167,7 +167,7 @@
     </style>
   </head>
   <body class="career-page">
-    <a href="index.html" class="career-back">← Back to site</a>
+    <a href="index.html" class="career-back">←</a>
 
     <section class="career-hero reveal">
       <div class="career-hero-bg"></div>
@@ -192,7 +192,7 @@
 
         <div class="career-form-box">
           <h3 class="career-form-title">Apply Now</h3>
-          <form id="careerForm" class="career-form" action="/api/career" method="post" enctype="multipart/form-data">
+          <form id="careerForm" class="career-form" action="mailto:manufacturing@rarebee.com" method="post" enctype="text/plain">
             <div class="career-field">
               <label for="career-name">Name <span class="required">*</span></label>
               <input type="text" id="career-name" name="name" required placeholder="Your full name" autocomplete="name" />
@@ -305,36 +305,6 @@
       );
       revealItems.forEach((item) => revealObserver.observe(item));
 
-      const form = document.getElementById("careerForm");
-      const submitBtn = document.getElementById("careerSubmit");
-      const messageEl = document.getElementById("careerMessage");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        messageEl.textContent = "";
-        messageEl.className = "career-message";
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
-
-        const formData = new FormData(form);
-        try {
-          const res = await fetch("/api/career", { method: "POST", body: formData });
-          const data = await res.json().catch(() => ({}));
-          if (res.ok && data.success) {
-            messageEl.textContent = data.message || "Application submitted successfully.";
-            messageEl.className = "career-message career-message--success";
-            form.reset();
-          } else {
-            messageEl.textContent = data.message || "Something went wrong. Please try again.";
-            messageEl.className = "career-message career-message--error";
-          }
-        } catch (err) {
-          messageEl.textContent = "Network error. Please check your connection and try again.";
-          messageEl.className = "career-message career-message--error";
-        }
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send";
-      });
     </script>
   </body>
 </html>
