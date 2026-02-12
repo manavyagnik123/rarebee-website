@@ -584,9 +584,9 @@ a {
   display: flex;
   align-items: flex-end;
   padding: 110px 0 64px;
-  background-image: url("bphoto1.jpeg");
+  background-image: url("facilityhero.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -669,7 +669,7 @@ a {
 .facility-utility {
   position: relative;
   padding: 60px 0;
-  background-image: url("bphoto1.jpeg");
+  background-image: url("utility.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1136,7 +1136,7 @@ footer.reveal {
 .career-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("bphoto1.jpeg");
+  background-image: url("carrerhero.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

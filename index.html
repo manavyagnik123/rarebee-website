@@ -103,9 +103,9 @@
       }
 
       @media (max-width: 900px) {
-        .footer-layout { flex-direction: column; gap: 20px; }
+        .footer-layout { flex-direction: column; gap: 16px; }
         .footer-left { width: 100%; }
-        .footer-right { flex-wrap: wrap; }
+        .footer-right { flex-wrap: wrap; padding-top: 0 !important; }
         .footer-col { flex: unset; width: calc(50% - 12px); }
       }
       @media (max-width: 600px) {
@@ -315,8 +315,8 @@
 
     <footer id="contact-us" class="site-footer reveal">
       <div class="container">
-        <div style="margin-bottom: 10px;">
-          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 110px; height: auto;" />
+        <div>
+          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 90px; height: auto; margin-left: -6px;" />
         </div>
 
         <div class="footer-layout">
@@ -462,9 +462,9 @@
       const hero = document.querySelector(".hero");
       const bgLayers = document.querySelectorAll(".hero-bg-layer");
       const heroImages = [
-        "photo1.png",
-        "photo2.png",
-        "photo3.png",
+        "photo.jpeg",
+        "photo1.jpeg",
+        "photo2.jpeg",
       ];
 
       let heroIndex = 0;
