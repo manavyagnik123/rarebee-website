@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "build": "echo \"Static site — no build needed\""
   },
   "dependencies": {
     "dotenv": "^16.3.1",
