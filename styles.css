@@ -856,76 +856,12 @@ a {
 .site-footer {
   background: linear-gradient(135deg, #071b3a 0%, #0b2a53 55%, #0a2446 100%);
   color: #eef5ff;
-  padding: 46px 0;
+  padding: 16px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin-top: auto;
 }
 
-.footer-grid {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 44px;
-}
-
-.footer-brand h4,
-.footer-links h4,
-.footer-contact h4 {
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0.2px;
-  margin-bottom: 10px;
-}
-
-.footer-brand p {
-  color: rgba(238, 245, 255, 0.78);
-  max-width: 520px;
-  line-height: 1.7;
-}
-
-.footer-contact {
-  min-width: min(360px, 100%);
-  text-align: right;
-}
-
-.footer-links {
-  min-width: min(220px, 100%);
-}
-
-.footer-link {
-  display: block;
-  color: rgba(238, 245, 255, 0.85);
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 760px) {
-  .footer-grid {
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .footer-links {
-    order: 2;
-  }
-
-  .footer-contact {
-    text-align: left;
-  }
-}
+/* Old footer classes removed - footer-row styles are inline in index.html */
 
 .reveal {
   opacity: 0;

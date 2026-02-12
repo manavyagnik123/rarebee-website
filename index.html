@@ -19,27 +19,97 @@
       body {
         font-family: "Poppins", sans-serif;
       }
-      .footer-contact-columns {
+
+      /* Footer: left brand column + right columns row */
+      .footer-layout {
         display: flex;
-        gap: 40px;
+        align-items: flex-start;
+        gap: 32px;
       }
-      .footer-contact-col h4 {
+
+      /* Left: logo + addresses stacked */
+      .footer-left {
+        flex-shrink: 0;
+        width: 220px;
+      }
+      /* logo is outside footer-layout now */
+      .footer-address {
+        margin-bottom: 8px;
+      }
+      .footer-address h4 {
         color: #ffffff;
-        font-size: 16px;
-        margin-bottom: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 2px;
       }
-      .footer-contact-col .footer-link {
+      .footer-address p {
+        color: rgba(238, 245, 255, 0.8);
+        font-size: 11px;
+        line-height: 1.45;
+        margin: 0;
+      }
+
+      /* Right: 4 columns side by side */
+      .footer-right {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .footer-col {
+        flex: 1;
+        min-width: 0;
+      }
+      .footer-col h4 {
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      /* Contact items: phone + email stacked */
+      .footer-contact-item {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
+        color: rgba(238, 245, 255, 0.85);
+        font-size: 11.5px;
+        line-height: 1.8;
+        text-decoration: none;
       }
-      @media (max-width: 1100px) {
-        .footer-grid { flex-wrap: wrap; }
-        .footer-contact-columns { width: 100%; justify-content: space-between; margin-top: 20px; }
+      .footer-contact-item:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
-      @media (max-width: 760px) {
-        .footer-contact-columns { flex-direction: column; gap: 30px; }
-        .footer-contact-col { min-width: 100%; }
+      .footer-contact-item svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+      }
+
+      /* Quick links col */
+      .footer-col--links a {
+        display: block;
+        color: rgba(238, 245, 255, 0.85);
+        font-size: 11.5px;
+        line-height: 1.9;
+        text-decoration: none;
+      }
+      .footer-col--links a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      @media (max-width: 900px) {
+        .footer-layout { flex-direction: column; gap: 20px; }
+        .footer-left { width: 100%; }
+        .footer-right { flex-wrap: wrap; }
+        .footer-col { flex: unset; width: calc(50% - 12px); }
+      }
+      @media (max-width: 600px) {
+        .footer-col { width: 100%; }
       }
     </style>
   </head>
@@ -244,57 +314,77 @@
     </section>
 
     <footer id="contact-us" class="site-footer reveal">
-      <div class="container footer-grid">
-        <div class="footer-brand">
-          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 150px; height: auto;" />
-          <div class="footer-contact-columns">
-          <div class="footer-contact-col">
+      <div class="container">
+        <div style="margin-bottom: 10px;">
+          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 110px; height: auto;" />
+        </div>
+
+        <div class="footer-layout">
+          <!-- Left: Addresses stacked -->
+          <div class="footer-left">
+            <div class="footer-address">
+              <h4>Corporate Office</h4>
+              <p>E-404, Ganesh Glory 11, Near Money Plant, S.G Highway, Ahmedabad, Gujarat 382470</p>
+            </div>
+            <div class="footer-address">
+              <h4>Unit</h4>
+              <p>16, Swagat Industrial Park, Opp. Dharti Appolo, Chhatral, Dhanot, Gujarat 382729</p>
+            </div>
+          </div>
+
+          <!-- Right: 4 columns -->
+          <div class="footer-right">
+
+          <!-- Col 2: For Domestic -->
+          <div class="footer-col">
             <h4>For Domestic</h4>
-            <a class="footer-link" href="tel:+919898555847">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+            <a class="footer-contact-item" href="tel:+919898555847">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
               +91 9898555847
             </a>
-            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-              rarebeelifesciences@yahoo.com
-            </a>
-          </div>
-          
-          <div class="footer-contact-col">
-            <h4>For Export</h4>
-            <a class="footer-link" href="tel:+919898525796">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
-              +91 9898525796
-            </a>
-            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-              rarebeelifesciences@yahoo.com
+            <a class="footer-contact-item" href="mailto:manufacturing@rarebee.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              manufacturing@rarebee.com
             </a>
           </div>
 
-          <div class="footer-contact-col">
-            <h4>For Manufacture</h4>
-            <a class="footer-link" href="tel:+9107929999857">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
-              +91 079 29999857
+          <!-- Col 3: For Export -->
+          <div class="footer-col">
+            <h4>For Export</h4>
+            <a class="footer-contact-item" href="tel:+919898525796">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              +91 9898525796
             </a>
-            <a class="footer-link" href="mailto:rarebeelifesciences@yahoo.com">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
-              rarebeelifesciences@yahoo.com
+            <a class="footer-contact-item" href="mailto:manufacturing@rarebee.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              manufacturing@rarebee.com
             </a>
           </div>
-        </div>
-        </div>
-        <div class="footer-links" aria-label="Quick links">
-          <h4>Quick links</h4>
-          <a class="footer-link" href="#about-us">About</a>
-          <a class="footer-link" href="products.html">Products</a>
-          <a class="footer-link" href="#our-units">Facility</a>
-          <a class="footer-link" href="#global-presence">Global presence</a>
-          <a class="footer-link" href="career.html">Careers</a>
-        </div>
-        
-       
+
+          <!-- Col 4: For Manufacture -->
+          <div class="footer-col">
+            <h4>For Manufacture</h4>
+            <a class="footer-contact-item" href="tel:+9107929999857">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+              +91 079 29999857
+            </a>
+            <a class="footer-contact-item" href="mailto:manufacturing@rarebee.com">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+              manufacturing@rarebee.com
+            </a>
+          </div>
+
+          <!-- Col 6: Quick Links -->
+          <div class="footer-col footer-col--links">
+            <h4>Quick links</h4>
+            <a href="#about-us">About</a>
+            <a href="products.html">Products</a>
+            <a href="#our-units">Facility</a>
+            <a href="#global-presence">Global presence</a>
+            <a href="career.html">Careers</a>
+          </div>
+        </div><!-- /footer-right -->
+      </div><!-- /footer-layout -->
       </div>
     </footer>
 
