@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100" role="img" aria-label="Philippines flag">
+  <rect width="160" height="100" fill="#ffffff"/>
+  <rect x="0" y="0" width="160" height="50" fill="#0038A8"/>
+  <rect x="0" y="50" width="160" height="50" fill="#CE1126"/>
+  <path d="M0 0 L70 50 L0 100 Z" fill="#ffffff"/>
+  <circle cx="22" cy="50" r="8" fill="#FCD116"/>
+  <g fill="#FCD116">
+    <circle cx="10" cy="25" r="2.5"/>
+    <circle cx="10" cy="75" r="2.5"/>
+    <circle cx="40" cy="50" r="2.5"/>
+  </g>
+</svg>

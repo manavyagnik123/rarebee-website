@@ -1117,7 +1117,7 @@ footer.reveal {
     width: min(320px, 82vw);
     background: var(--primary);
     flex-direction: column;
-    padding: 60px 24px 24px;
+    padding: 60px 24px 104px;
     gap: 36px;
     justify-content: center;
     align-items: flex-start;
@@ -1155,7 +1155,7 @@ footer.reveal {
   }
 
   .nav-close-btn:hover {
-    color: var(--secondary);
+    color: #ffffff;
   }
 
   .nav-close-btn:focus-visible {
@@ -1168,6 +1168,11 @@ footer.reveal {
   }
 
   .nav-open .nav-toggle .nav-toggle-x {
+    color: #ffffff;
+  }
+
+  .nav-open .nav-toggle:hover .nav-toggle-x,
+  .nav-open .nav-toggle:focus .nav-toggle-x {
     color: #ffffff;
   }
 
@@ -1459,4 +1464,152 @@ footer.reveal {
   .career-form-box {
     padding: 24px 18px;
   }
+}
+
+/* ---------- Global presence: writing + read more + flag run + brochure ---------- */
+.gp-writing {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+#global-presence .gp-writing:last-child {
+  margin-bottom: 0;
+}
+
+/* Global presence page: match Facility font and spacing */
+.facility-capabilities .gp-content {
+  padding: 0 8%;
+  font-size: 15px;
+}
+
+.facility-capabilities .gp-content p {
+  font-size: 15px;
+  font-family: inherit;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.facility-capabilities .gp-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .facility-capabilities .gp-content {
+    padding: 0 20px;
+    text-align: left;
+  }
+}
+
+.gp-readmore {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.gp-flag-label {
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: -6px;
+}
+
+.flag-run {
+  position: relative;
+  margin: 22px auto 10px;
+  max-width: 980px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.flag-run::before,
+.flag-run::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.flag-run::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.flag-run::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.flag-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: flagScroll 18s linear infinite;
+}
+
+.flag-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 18px;
+}
+
+.flag {
+  width: 64px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #e4ecf9;
+  box-shadow: 0 10px 20px rgba(27, 79, 163, 0.08);
+  background: #ffffff;
+  flex: 0 0 auto;
+}
+
+@keyframes flagScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flag-track { animation: none; }
+  .flag-run { overflow: auto; }
+  .flag-run::before, .flag-run::after { display: none; }
+}
+
+.gp-brochure {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.gp-brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.gp-brochure-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.gp-brochure-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(27, 79, 163, 0.2);
 }

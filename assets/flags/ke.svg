@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100" role="img" aria-label="Kenya flag">
+  <rect width="160" height="100" fill="#ffffff"/>
+  <rect width="160" height="33.333" y="0" fill="#000000"/>
+  <rect width="160" height="6" y="33.333" fill="#ffffff"/>
+  <rect width="160" height="27.333" y="39.333" fill="#BB0000"/>
+  <rect width="160" height="6" y="66.666" fill="#ffffff"/>
+  <rect width="160" height="33.334" y="72.666" fill="#006600"/>
+  <!-- simple center shield -->
+  <ellipse cx="80" cy="50" rx="10" ry="18" fill="#BB0000" stroke="#ffffff" stroke-width="3"/>
+  <ellipse cx="80" cy="50" rx="4" ry="18" fill="#000000" opacity="0.85"/>
+</svg>

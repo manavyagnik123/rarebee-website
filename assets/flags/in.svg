@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100" role="img" aria-label="India flag">
+  <rect width="160" height="100" fill="#ffffff"/>
+  <rect width="160" height="33.333" y="0" fill="#FF9933"/>
+  <rect width="160" height="33.333" y="66.666" fill="#138808"/>
+  <circle cx="80" cy="50" r="12" fill="none" stroke="#000080" stroke-width="3"/>
+  <circle cx="80" cy="50" r="1.5" fill="#000080"/>
+</svg>

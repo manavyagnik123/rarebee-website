@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100" role="img" aria-label="United Arab Emirates flag">
+  <rect width="160" height="100" fill="#ffffff"/>
+  <rect width="40" height="100" x="0" y="0" fill="#FF0000"/>
+  <rect width="120" height="33.333" x="40" y="0" fill="#00732F"/>
+  <rect width="120" height="33.333" x="40" y="33.333" fill="#ffffff"/>
+  <rect width="120" height="33.334" x="40" y="66.666" fill="#000000"/>
+</svg>

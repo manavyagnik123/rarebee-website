@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brochure | RareBee Lifesciences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CPlus+Jakarta+Sans:500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body { font-family: "Poppins", sans-serif; }
+      .brochure-card {
+        background: var(--white);
+        border: 1px solid #e4ecf9;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(27, 79, 163, 0.10);
+        padding: 28px;
+        max-width: 920px;
+        margin: 0 auto;
+      }
+      .brochure-card h3 {
+        margin-top: 0;
+        color: var(--primary-dark);
+      }
+      .brochure-card p {
+        color: var(--text-muted);
+        line-height: 1.8;
+        font-size: 15px;
+      }
+      .brochure-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .brochure-note {
+        margin-top: 14px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <img src="./logo.png" alt="RareBee Lifesciences" />
+        </div>
+        <nav class="main-nav" id="siteNav">
+          <button class="nav-close-btn" onclick="document.querySelector('.nav-toggle').click()" aria-label="Close menu">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+          <a href="index.html#about-us">About Us</a>
+          <a href="products.html">Product list</a>
+          <a href="units.html">Facility</a>
+          <a href="global-presence.html">Global Presence</a>
+          <a href="career.html">Careers</a>
+          <a href="index.html#contact-us">Contact us</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="siteNav"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <svg class="nav-toggle-x" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="nav-overlay" data-nav-close></div>
+    </header>
+
+    <section class="section reveal" style="padding-top: 120px;">
+      <div class="container">
+        <div class="section-title center">
+          <h2>Brochure</h2>
+          <p class="section-subtitle gp-writing">
+            This is a web brochure page. If you want an actual PDF brochure, add the PDF file in this project
+            and we’ll point the button to it.
+          </p>
+        </div>
+
+        <div class="brochure-card reveal">
+          <h3>Rarebee Group</h3>
+          <p>
+            Our unwavering commitment to quality and innovation has enabled us to establish a robust global footprint,
+            delivering exceptional pharmaceutical solutions across many countries.
+          </p>
+          <p>
+            We collaborate with numerous WHO GMP certified manufacturers and provide complete export documentation, dossiers,
+            and contract / third-party manufacturing support for global partners.
+          </p>
+
+          <div class="brochure-actions">
+            <a class="gp-brochure-btn" href="global-presence.html">View global presence</a>
+            <button class="primary-btn" type="button" onclick="window.print()">Print / Save as PDF</button>
+          </div>
+
+          <div class="brochure-note">
+            Tip: Use your browser’s “Print” → “Save as PDF” to download a PDF version.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const navToggle = document.querySelector(".nav-toggle");
+      const navOverlay = document.querySelector(".nav-overlay");
+      const navLinks = document.querySelectorAll(".main-nav a");
+
+      const closeNav = () => {
+        document.body.classList.remove("nav-open");
+        navToggle?.setAttribute("aria-expanded", "false");
+      };
+
+      const openNav = () => {
+        document.body.classList.add("nav-open");
+        navToggle?.setAttribute("aria-expanded", "true");
+      };
+
+      navToggle?.addEventListener("click", () => {
+        if (document.body.classList.contains("nav-open")) closeNav();
+        else openNav();
+      });
+
+      navOverlay?.addEventListener("click", closeNav);
+      navLinks.forEach((link) => link.addEventListener("click", closeNav));
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeNav();
+      });
+
+      const revealItems = Array.from(document.querySelectorAll(".reveal"));
+      revealItems.forEach((item, index) => {
+        const delay = Math.min(index * 70, 420);
+        item.style.setProperty("--reveal-delay", `${delay}ms`);
+      });
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("in-view");
+            else entry.target.classList.remove("in-view");
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    </script>
+  </body>
+</html>

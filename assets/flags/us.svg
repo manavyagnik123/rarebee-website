@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="100" viewBox="0 0 160 100" role="img" aria-label="United States flag">
+  <rect width="160" height="100" fill="#ffffff"/>
+  <!-- red stripes -->
+  <g fill="#B22234">
+    <rect y="0" width="160" height="7.692"/>
+    <rect y="15.384" width="160" height="7.692"/>
+    <rect y="30.768" width="160" height="7.692"/>
+    <rect y="46.152" width="160" height="7.692"/>
+    <rect y="61.536" width="160" height="7.692"/>
+    <rect y="76.92" width="160" height="7.692"/>
+    <rect y="92.304" width="160" height="7.696"/>
+  </g>
+  <!-- canton -->
+  <rect x="0" y="0" width="64" height="53.846" fill="#3C3B6E"/>
+  <!-- simple star field dots -->
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="10" cy="10" r="1.6"/>
+    <circle cx="22" cy="10" r="1.6"/>
+    <circle cx="34" cy="10" r="1.6"/>
+    <circle cx="46" cy="10" r="1.6"/>
+    <circle cx="58" cy="10" r="1.6"/>
+    <circle cx="16" cy="20" r="1.6"/>
+    <circle cx="28" cy="20" r="1.6"/>
+    <circle cx="40" cy="20" r="1.6"/>
+    <circle cx="52" cy="20" r="1.6"/>
+    <circle cx="10" cy="30" r="1.6"/>
+    <circle cx="22" cy="30" r="1.6"/>
+    <circle cx="34" cy="30" r="1.6"/>
+    <circle cx="46" cy="30" r="1.6"/>
+    <circle cx="58" cy="30" r="1.6"/>
+    <circle cx="16" cy="40" r="1.6"/>
+    <circle cx="28" cy="40" r="1.6"/>
+    <circle cx="40" cy="40" r="1.6"/>
+    <circle cx="52" cy="40" r="1.6"/>
+  </g>
+</svg>
