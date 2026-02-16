@@ -67,6 +67,22 @@ a {
   z-index: 10;
 }
 
+/* Desktop header alignment tweaks */
+@media (min-width: 901px) {
+  .site-header .container {
+    width: min(1280px, 99.5%);
+  }
+
+  .brand {
+    margin-left: -18px;
+  }
+
+  .main-nav {
+    gap: 14px;
+    margin-right: -18px;
+  }
+}
+
 .site-header,
 .site-header .container,
 .header-content {
@@ -99,15 +115,15 @@ a {
 .main-nav {
   display: flex;
   gap: 26px;
-  font-size: 16px;
+  font-size: 18px;
   color: #0f2f5b;
   margin-left: auto;
   justify-content: flex-end;
-  font-weight: 450;
+  font-weight: 600;
 }
 
 .main-nav a {
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
+  text-shadow: none;
 }
 
 .main-nav a {
@@ -116,6 +132,34 @@ a {
 
 .main-nav a:hover {
   color: #0b2a53;
+}
+
+/* Desktop header hover: pill + underline (no mobile impact) */
+@media (min-width: 901px) {
+  .main-nav a {
+    position: relative;
+    padding: 6px 8px;
+    border-radius: 999px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .main-nav a:hover {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .main-nav a:focus-visible {
+    outline: 2px solid rgba(27, 79, 163, 0.45);
+    outline-offset: 4px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-nav a {
+    transition: none !important;
+  }
 }
 
 .header-cta {
@@ -246,7 +290,8 @@ a {
 
 .hero-copy h1 {
   font-size: clamp(28px, 4vw, 44px);
-  color: var(--primary);
+  /* Hero text: force white on all views */
+  color: #ffffff !important;
   margin-bottom: 20px;
   line-height: 1.2;
 }
@@ -258,12 +303,13 @@ a {
 
 .hero-copy h1 span,
 .hero-sub span {
-  color: var(--secondary);
+  /* Hero accent green */
+  color: #6CC04A !important;
 }
 
 .hero-sub {
   margin-bottom: 12px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 15px;
 }
 
@@ -1057,27 +1103,34 @@ footer.reveal {
 }
 
 .whatsapp-float {
+  /* Responsive sizing (bigger than before) */
+  --wa-btn-size: clamp(3.5rem, 9vw, 4.5rem);
   position: fixed;
-  right: 22px;
-  bottom: 24px;
-  background: #25d366;
-  color: #ffffff;
-  width: 52px;
-  height: 52px;
+  right: clamp(14px, 3vw, 22px);
+  bottom: clamp(14px, 3vw, 24px);
+  background: transparent;
+  width: var(--wa-btn-size);
+  height: var(--wa-btn-size);
   padding: 0;
   border-radius: 999px;
   font-weight: 600;
-  box-shadow: 0 12px 24px rgba(37, 211, 102, 0.35);
+  box-shadow: none;
   z-index: 8;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-.whatsapp-float svg {
-  width: 26px;
-  height: 26px;
+.whatsapp-float svg,
+.whatsapp-float img {
+  width: calc(var(--wa-btn-size) * 0.82);
+  height: calc(var(--wa-btn-size) * 0.82);
+}
+
+.whatsapp-float img {
+  display: block;
+  object-fit: contain;
 }
 
 .sr-only {
@@ -1094,7 +1147,6 @@ footer.reveal {
 
 .whatsapp-float:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 28px rgba(37, 211, 102, 0.4);
 }
 
 @keyframes fadeUp {
@@ -1114,17 +1166,28 @@ footer.reveal {
     top: 0;
     right: 0;
     height: 100vh;
+    height: 100dvh;
     width: min(320px, 82vw);
     background: var(--primary);
     flex-direction: column;
-    padding: 60px 24px 104px;
-    gap: 36px;
-    justify-content: center;
-    align-items: flex-start;
+    /* Responsive padding so mobile menu scales across devices */
+    --nav-pad-x: clamp(16px, 5vw, 24px);
+    --nav-pad-top: clamp(76px, 12vh, 132px);
+    --nav-pad-bottom: clamp(28px, 10vh, 88px);
+    padding: calc(env(safe-area-inset-top, 0px) + var(--nav-pad-top))
+      var(--nav-pad-x)
+      calc(env(safe-area-inset-bottom, 0px) + var(--nav-pad-bottom));
+    gap: clamp(16px, 3vh, 28px);
+    /* Top-aligned menu + consistent left edge for all items */
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.3);
     transform: translateX(110%);
     transition: transform 0.3s ease;
     z-index: 6;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .nav-open .main-nav {
@@ -1133,9 +1196,10 @@ footer.reveal {
 
   .nav-close-btn {
     display: flex;
-    position: absolute;
-    top: 58px;
-    right: 20px;
+    /* Keep the close button pinned even if menu scrolls */
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 16px);
+    right: clamp(12px, 4vw, 20px);
     width: 48px;
     height: 48px;
     padding: 8px;
@@ -1147,6 +1211,7 @@ footer.reveal {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    z-index: 7;
   }
 
   .nav-close-btn svg {
@@ -1165,6 +1230,15 @@ footer.reveal {
 
   .nav-toggle {
     display: inline-flex;
+  }
+
+  /* Make hamburger icon white on mobile */
+  .nav-toggle span {
+    background: #ffffff;
+  }
+
+  .nav-toggle .nav-toggle-x {
+    color: #ffffff;
   }
 
   .nav-open .nav-toggle .nav-toggle-x {
@@ -1468,13 +1542,22 @@ footer.reveal {
 
 /* ---------- Global presence: writing + read more + flag run + brochure ---------- */
 .gp-writing {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
+  /* Match Facility section alignment/spacing on homepage */
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
   text-align: center;
   font-size: 15px;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+  color: var(--text-dark); /* match Facility section font color */
+  line-height: 1.4;
+  margin-top: 0; /* remove section-subtitle top margin */
+  margin-bottom: 0.75rem;
+}
+
+#global-presence .section-title {
+  /* Match Facility horizontal coverage (no narrow max-width) */
+  max-width: none;
+  padding: 0;
 }
 
 #global-presence .gp-writing:last-child {
@@ -1485,6 +1568,18 @@ footer.reveal {
 .facility-capabilities .gp-content {
   padding: 0 8%;
   font-size: 15px;
+}
+
+.facility-capabilities .gp-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.facility-capabilities .gp-content h3:first-of-type {
+  margin-top: 0;
 }
 
 .facility-capabilities .gp-content p {

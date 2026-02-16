@@ -79,6 +79,17 @@
       .footer-col--links a { display: block; color: rgba(238, 245, 255, 0.85); font-size: 11.5px; line-height: 1.9; text-decoration: none; }
       .footer-col--links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+      /* Global Presence content lists */
+      .facility-capabilities .gp-content .gp-list {
+        margin: -18px 0 32px;
+        padding-left: 18px;
+      }
+      .facility-capabilities .gp-content .gp-list li {
+        margin: 8px 0;
+        line-height: 1.8;
+        color: var(--text-dark);
+      }
+
       @media (max-width: 900px) {
         .footer-layout { flex-direction: column; gap: 16px; }
         .footer-left { width: 100%; }
@@ -89,37 +100,8 @@
     </style>
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-content">
-        <div class="brand">
-          <img src="./logo.png" alt="RareBee Lifesciences" />
-        </div>
-        <nav class="main-nav" id="siteNav">
-          <button class="nav-close-btn" onclick="document.querySelector('.nav-toggle').click()" aria-label="Close menu">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
-          <a href="index.html#about-us">About Us</a>
-          <a href="products.html">Product list</a>
-          <a href="units.html">Facility</a>
-          <a href="global-presence.html">Global Presence</a>
-          <a href="career.html">Careers</a>
-          <a href="index.html#contact-us">Contact us</a>
-        </nav>
-        <div class="header-actions">
-          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
-            <span></span>
-            <span></span>
-            <span></span>
-            <svg class="nav-toggle-x" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <path d="M18 6L6 18M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="nav-overlay" data-nav-close></div>
-    </header>
+    <!-- Back button: match units.html exactly -->
+    <a href="index.html" class="career-back">←</a>
 
     <!-- Hero -->
     <section class="gp-hero reveal" aria-label="Global Presence hero">
@@ -134,37 +116,74 @@
     <section class="section reveal facility-capabilities">
       <div class="container">
         <div class="about-summary gp-content">
+          <h3>Rarebee Group – Your Strategic Global Pharmaceutical Partner</h3>
           <p>
-            Rarebee Group, our unwavering commitment to quality and innovation has enabled us to establish a robust global footprint, delivering exceptional pharmaceutical
-            solutions across many countries. Our journey of growth is fueled by a vision to transcend boundaries and redefine healthcare standards worldwide.
+            At Rarebee Group, we don’t just supply medicines — we deliver competitive advantage.
           </p>
           <p>
-            With a presence in key international markets, we cater to diverse healthcare needs with precision and care. Our strong network spans continents,
-            ensuring that life-saving medicines and healthcare solutions reach those who need them the most.
+            With a rapidly expanding international footprint, we provide high-quality pharmaceutical solutions across multiple countries, helping our global partners scale faster, enter new markets confidently, and outperform local competition.
           </p>
+
+          <h3>Built for Global Markets</h3>
           <p>
-            The synergy between our Exports and Quality assurance teams ensures seamless operations from India to global markets.
+            Our operations are designed exclusively for international trade. From regulatory documentation to export logistics, every process is structured to ensure:
           </p>
+          <ul class="gp-list">
+            <li>Fast execution</li>
+            <li>Complete compliance</li>
+            <li>Zero compromise on quality</li>
+            <li>Reliable and on-time global delivery</li>
+          </ul>
           <p>
-            With a vision to expand further and make healthcare accessible to all, Rarebee Group is dedicated to building lasting relationships with our global partners.
-            Together, we’re shaping the future of healthcare.
+            The strong coordination between our Exports and Quality Assurance teams ensures smooth and hassle-free shipments from India to your market.
           </p>
+
+          <h3>Manufacturing Strength You Can Rely On</h3>
           <p>
-            Rarebee Lifesciences collaborates with numerous WHO GMP certified pharmaceutical, cosmetic, nutraceutical, and surgical manufacturers,
-            all equipped with complete export documentation, to serve global markets.
+            Under Rarebee Pharma Pvt. Ltd., we operate our own GMP-compliant manufacturing unit specializing in:
           </p>
+          <ul class="gp-list">
+            <li>Ointments</li>
+            <li>Oral liquids</li>
+          </ul>
           <p>
-            Rarebee Group operates its own pharmaceutical manufacturing unit for ointments and oral liquids under Rarebee Pharma Pvt. Ltd.
-            The facility is structured in compliance with Revised Schedule M, GMP certified, and has applied for WHO certification to serve global markets.
-            It is fully prepared for supply in global market.
+            Our facility is:
           </p>
+          <ul class="gp-list">
+            <li>Structured as per Revised Schedule M</li>
+            <li>GMP certified</li>
+            <li>WHO-GMP certification applied</li>
+            <li>Fully export-ready</li>
+          </ul>
           <p>
-            Rarebee Group offers contract and third-party manufacturing services for the global market. This enables our international partners to create their own branded products
-            with custom packaging, allowing them to easily market and sell under their own brand names.
+            In addition, through Rarebee Lifesciences, we collaborate with multiple WHO-GMP certified pharmaceutical, cosmetic, nutraceutical, and surgical manufacturers — giving us the flexibility to fulfill high-volume and diversified product requirements.
           </p>
+
+          <h3>Private Label & Third-Party Manufacturing</h3>
           <p>
-            Rarebee Group fulfills all product demands for global partners, providing complete documentation and dossier processes as needed.
-            This is enabled by our association with certified manufacturing plants.
+            Looking to build your own brand? Rarebee Group enables international partners to launch and scale their own pharmaceutical brands with:
+          </p>
+          <ul class="gp-list">
+            <li>Custom formulations</li>
+            <li>Private labeling</li>
+            <li>Customized packaging</li>
+            <li>Market-specific compliance documentation</li>
+            <li>Complete dossier support</li>
+          </ul>
+          <p>
+            You focus on marketing and distribution — we handle production, compliance, and documentation.
+          </p>
+
+          <h3>Complete Regulatory & Documentation Support</h3>
+          <p>We provide:</p>
+          <ul class="gp-list">
+            <li>Full export documentation</li>
+            <li>COA, stability data, and regulatory files</li>
+            <li>Dossier preparation (as required)</li>
+            <li>Market-specific compliance assistance</li>
+          </ul>
+          <p>
+            Our system ensures you receive ready-to-register, ready-to-market products.
           </p>
         </div>
 
@@ -243,25 +262,6 @@
     </footer>
 
     <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navOverlay = document.querySelector(".nav-overlay");
-      const navLinks = document.querySelectorAll(".main-nav a");
-      const closeNav = () => {
-        document.body.classList.remove("nav-open");
-        navToggle?.setAttribute("aria-expanded", "false");
-      };
-      const openNav = () => {
-        document.body.classList.add("nav-open");
-        navToggle?.setAttribute("aria-expanded", "true");
-      };
-      navToggle?.addEventListener("click", () => {
-        if (document.body.classList.contains("nav-open")) closeNav();
-        else openNav();
-      });
-      navOverlay?.addEventListener("click", closeNav);
-      navLinks.forEach((link) => link.addEventListener("click", closeNav));
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeNav(); });
-
       const revealItems = Array.from(document.querySelectorAll(".reveal"));
       revealItems.forEach((item, index) => {
         const delay = Math.min(index * 70, 420);
