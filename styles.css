@@ -303,8 +303,8 @@ a {
 
 .hero-copy h1 span,
 .hero-sub span {
-  /* Hero accent green */
-  color: #6CC04A !important;
+  /* Hero: keep everything white */
+  color: #ffffff !important;
 }
 
 .hero-sub {
@@ -573,6 +573,7 @@ a {
   .contact-grid p,
   #our-units .contact-grid,
   #global-presence .section-title,
+  #global-presence .gp-writing,
   .badge-grid,
   .badge-grid span,
   .business-gradient,
@@ -1552,6 +1553,11 @@ footer.reveal {
   line-height: 1.4;
   margin-top: 0; /* remove section-subtitle top margin */
   margin-bottom: 0.75rem;
+}
+
+#global-presence .gp-writing:first-of-type {
+  /* Match About Us first-paragraph spacing */
+  margin-top: 18px;
 }
 
 #global-presence .section-title {
