@@ -1587,8 +1587,8 @@ footer.reveal {
   font-size: 18px;
   font-weight: 600;
   color: var(--text-dark);
-  margin-top: 40px;
-  margin-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
 .facility-capabilities .gp-content h3:first-of-type {
@@ -1598,9 +1598,9 @@ footer.reveal {
 .facility-capabilities .gp-content p {
   font-size: 15px;
   font-family: inherit;
-  color: var(--text-dark); /* match index.html Global Presence font color */
-  line-height: 1.4;        /* match About Us / Facility */
-  margin-bottom: 0.75rem;  /* match About Us / Facility */
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
 .facility-capabilities .gp-content p:last-child {
