@@ -102,7 +102,14 @@
         color: #fff;
       }
 
+      .gp-back-mobile {
+        display: none;
+      }
+
       @media (max-width: 760px) {
+        .gp-back-mobile {
+          display: inline-flex;
+        }
         .gp-hero {
           min-height: 100vh;
           padding-top: 120px;
@@ -171,21 +178,12 @@
     </style>
   </head>
   <body>
-    <header class="site-header subpage-header">
-      <div class="container header-content">
-        <div class="brand">
-          <a href="index.html"><img src="./logo.png" alt="RareBee Lifesciences" /></a>
-        </div>
-        <nav class="main-nav" id="siteNav">
-          <a href="index.html#about-us">About Us</a>
-          <a href="products.html">Product list</a>
-          <a href="units.html">Facility</a>
-          <a href="global-presence.html">Global Presence</a>
-          <a href="career.html">Careers</a>
-          <a href="index.html#contact-us">Contact us</a>
-        </nav>
-      </div>
-    </header>
+
+    <a href="index.html" class="career-back gp-back-mobile" aria-label="Go back to home">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
 
     <!-- Hero -->
     <section class="gp-hero reveal" aria-label="Global Presence hero">
@@ -199,7 +197,7 @@
           Delivering export-ready pharmaceutical solutions<br>
           with uncompromising quality and compliance.
         </p>
-        <a href="index.html#contact-us" class="gp-hero-cta">Partner With Rarebee</a>
+        <a href="mailto:Export@rarebeegroup.com" class="gp-hero-cta">Partner With Rarebee</a>
       </div>
     </section>
 
