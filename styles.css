@@ -1125,8 +1125,8 @@ footer.reveal {
 
 .whatsapp-float svg,
 .whatsapp-float img {
-  width: calc(var(--wa-btn-size) * 0.82);
-  height: calc(var(--wa-btn-size) * 0.82);
+  width: calc(var(--wa-btn-size) * 1.82);
+  height: calc(var(--wa-btn-size) * 1.82);
 }
 
 .whatsapp-float img {
@@ -1148,6 +1148,13 @@ footer.reveal {
 
 .whatsapp-float:hover {
   transform: translateY(-3px);
+}
+
+/* Bigger WhatsApp button on mobile */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    --wa-btn-size: clamp(4.25rem, 16vw, 5.25rem);
+  }
 }
 
 @keyframes fadeUp {
@@ -1591,8 +1598,9 @@ footer.reveal {
 .facility-capabilities .gp-content p {
   font-size: 15px;
   font-family: inherit;
-  line-height: 1.8;
-  margin-bottom: 36px;
+  color: var(--text-dark); /* match index.html Global Presence font color */
+  line-height: 1.4;        /* match About Us / Facility */
+  margin-bottom: 0.75rem;  /* match About Us / Facility */
 }
 
 .facility-capabilities .gp-content p:last-child {
