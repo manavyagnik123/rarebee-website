@@ -79,14 +79,17 @@
       .footer-col--links a { display: block; color: rgba(238, 245, 255, 0.85); font-size: 11.5px; line-height: 1.9; text-decoration: none; }
       .footer-col--links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-      /* Global Presence content lists */
+      /* Global Presence content spacing */
+      .gp-content p {
+        margin-bottom: 14px;
+      }
       .facility-capabilities .gp-content .gp-list {
-        margin: -18px 0 32px;
+        margin: 10px 0 20px;
         padding-left: 18px;
       }
       .facility-capabilities .gp-content .gp-list li {
-        margin: 8px 0;
-        line-height: 1.8;
+        margin: 10px 0;
+        line-height: 1.9;
         color: var(--text-dark);
       }
 
@@ -97,6 +100,21 @@
         .footer-col { flex: unset; width: calc(50% - 12px); }
       }
       @media (max-width: 600px) { .footer-col { width: 100%; } }
+
+      /* Mobile spacing for gp-content text elements */
+      @media (max-width: 760px) {
+        .gp-content p {
+          margin-bottom: 14px;
+        }
+        .gp-content ul.gp-list {
+          margin-top: 10px;
+          margin-bottom: 20px;
+        }
+        .gp-content ul.gp-list li {
+          margin: 10px 0;
+          line-height: 1.9;
+        }
+      }
     </style>
   </head>
   <body>
@@ -116,9 +134,9 @@
     <section class="section reveal facility-capabilities">
       <div class="container">
         <div class="about-summary gp-content">
-          <h3>Rarebee Group – Your Strategic Global Pharmaceutical Partner</h3>
+          <h3>Rarebee Group  Your Strategic Global Pharmaceutical Partner</h3>
           <p>
-            At Rarebee Group, we don’t just supply medicines — we deliver competitive advantage.
+            At Rarebee Group, we don’t just supply medicines  we deliver competitive advantage.
           </p>
           <p>
             With a rapidly expanding international footprint, we provide high-quality pharmaceutical solutions across multiple countries, helping our global partners scale faster, enter new markets confidently, and outperform local competition.
@@ -171,7 +189,7 @@
             <li>Complete dossier support</li>
           </ul>
           <p>
-            You focus on marketing and distribution — we handle production, compliance, and documentation.
+            You focus on marketing and distribution  we handle production, compliance, and documentation.
           </p>
 
           <h3>Complete Regulatory & Documentation Support</h3>
