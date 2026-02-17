@@ -18,17 +18,17 @@
     <style>
       body { font-family: "Poppins", sans-serif; }
 
-      /* Global presence hero - match Facility page height */
+      /* Global presence hero */
       .gp-hero {
         position: relative;
         min-height: 100vh;
         display: flex;
-        align-items: flex-start;
-        padding-top: 35vh;
-        padding-bottom: 56px;
-        background-image: url("facilityhero.jpeg");
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-image: url("globalpresence.png");
         background-size: cover;
-        background-position: center;
+        background-position: center right;
         background-repeat: no-repeat;
         overflow: hidden;
       }
@@ -36,31 +36,81 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(120deg, rgba(18, 59, 122, 0.82) 0%, rgba(18, 59, 122, 0.58) 50%, rgba(18, 59, 122, 0.35) 100%);
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.97) 0%,
+          rgba(255, 255, 255, 0.92) 25%,
+          rgba(255, 255, 255, 0.7) 45%,
+          rgba(255, 255, 255, 0.3) 65%,
+          rgba(255, 255, 255, 0) 80%
+        );
       }
       .gp-hero-inner {
         position: relative;
         z-index: 1;
-        max-width: 760px;
+        max-width: 520px;
+        padding: 80px 0;
       }
       .gp-hero h1 {
         font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
-        font-size: clamp(32px, 4.5vw, 48px);
-        line-height: 1.1;
-        color: var(--white);
-        margin-bottom: 10px;
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: 2px;
+        color: #1a2a4a;
+        text-transform: uppercase;
+        margin-bottom: 16px;
       }
-      .gp-hero-sub {
-        color: rgba(255, 255, 255, 0.92);
-        font-size: 15px;
-        line-height: 1.6;
+      .gp-hero-divider {
+        width: 60px;
+        height: 3px;
+        background: #c4a35a;
+        border: none;
+        margin: 0 0 20px 0;
+      }
+      .gp-hero-subtitle {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(16px, 2vw, 20px);
+        font-style: italic;
+        font-weight: 500;
+        color: #1a2a4a;
+        line-height: 1.4;
+        margin-bottom: 14px;
+      }
+      .gp-hero-body {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        color: #56637a;
+        line-height: 1.7;
+        margin-bottom: 28px;
+      }
+      .gp-hero-cta {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 1.5px solid #c4a35a;
+        color: #1a2a4a;
+        font-family: "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        background: transparent;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+      }
+      .gp-hero-cta:hover {
+        background: #c4a35a;
+        color: #fff;
       }
 
       @media (max-width: 760px) {
         .gp-hero {
           min-height: 100vh;
-          padding-top: 150px;
+          padding-top: 120px;
           padding-bottom: 40px;
+          align-items: flex-start;
+        }
+        .gp-hero-inner {
+          padding: 0;
         }
       }
 
@@ -140,10 +190,16 @@
     <!-- Hero -->
     <section class="gp-hero reveal" aria-label="Global Presence hero">
       <div class="container gp-hero-inner">
-        <h1>Global Presence</h1>
-        <p class="gp-hero-sub">
-          Delivering exceptional pharmaceutical solutions across many countries.
+        <h1>Global<br>Presence</h1>
+        <hr class="gp-hero-divider">
+        <p class="gp-hero-subtitle">
+          Your Gateway to International<br>Pharmaceutical Excellence.
         </p>
+        <p class="gp-hero-body">
+          Delivering export-ready pharmaceutical solutions<br>
+          with uncompromising quality and compliance.
+        </p>
+        <a href="index.html#contact-us" class="gp-hero-cta">Partner With Rarebee</a>
       </div>
     </section>
 

@@ -14,22 +14,122 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CPlus+Jakarta+Sans:500&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    />
     <link rel="stylesheet" href="styles.css" />
     <style>
+      html {
+        overflow-x: hidden;
+      }
       body {
         font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
       }
+
+
+      /* ── Redesigned Facility Hero ── */
       .facility-hero {
         min-height: 100vh;
-        align-items: flex-start;
-        padding-top: 35vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background-image: url("facilityhero.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
       }
+      .facility-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(20, 30, 48, 0.55);
+      }
+
+      .facility-hero-center {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        max-width: 800px;
+        padding: 140px 24px 40px;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      .facility-hero-label {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 18px;
+      }
+
+      .facility-hero h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-weight: 700;
+        font-size: clamp(38px, 6vw, 72px);
+        line-height: 1.1;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .facility-hero-tagline {
+        font-family: "Playfair Display", Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(18px, 2.5vw, 26px);
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 24px;
+      }
+
+      .facility-hero-desc {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: clamp(14px, 1.6vw, 17px);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .facility-hero-btn {
+        display: inline-block;
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #ffffff;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 14px 36px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .facility-hero-btn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.8);
+      }
+
       @media (max-width: 760px) {
         .facility-hero {
           min-height: 100vh;
-          padding-top: 150px;
+        }
+        .facility-hero-center {
+          padding: 80px 16px 40px;
         }
       }
+
       .facility-capabilities .about-summary,
       .facility-utility .about-summary,
       .facility-premises .about-summary {
@@ -148,36 +248,31 @@
   </head>
   <body>
 
-    <header class="site-header subpage-header">
-      <div class="container header-content">
-        <div class="brand">
-          <a href="index.html"><img src="./logo.png" alt="RareBee Lifesciences" /></a>
-        </div>
-        <nav class="main-nav" id="siteNav">
-          <a href="index.html#about-us">About Us</a>
-          <a href="products.html">Product list</a>
-          <a href="units.html">Facility</a>
-          <a href="global-presence.html">Global Presence</a>
-          <a href="career.html">Careers</a>
-          <a href="index.html#contact-us">Contact us</a>
-        </nav>
-      </div>
-    </header>
+    <a href="index.html" class="career-back" aria-label="Go back to home" style="display: inline-flex; align-items: center; gap: 6px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+
+    </a>
+
 
     <!-- Facility hero -->
     <section class="facility-hero reveal" aria-label="Facility hero">
-      <div class="container facility-hero-inner">
-        <p class="facility-hero-eyebrow">RareBee Pharama Pvt. Ltd.</p>
-        <h1>Facility</h1>
-        <p class="facility-hero-sub">
-          A pharma manufacturing plant built for quality, safety, and compliance.
+      <div class="facility-hero-center">
+        <p class="facility-hero-label">RAREBEE PHARMA PVT. LTD.</p>
+        <h1 class="facility-hero-heading">State-of-the-Art<br>Facility</h1>
+        <p class="facility-hero-tagline">Where science meets precision.</p>
+        <p class="facility-hero-desc">
+          Designed for compliance.<br>
+          Built for global healthcare impact.
         </p>
+        <a href="#facility-details" class="facility-hero-btn">Discover More</a>
       </div>
     </section>
 
 
 
-       <section class="section reveal facility-capabilities">
+       <section id="facility-details" class="section reveal facility-capabilities">
       <div class="container">
         <div class="about-summary">
           <p>
