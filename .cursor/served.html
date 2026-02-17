@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -29,20 +29,31 @@
       }
 
       /* ── Hero slideshow ── */
+      .hero-copy--child {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10%;
+      }
+
+      /* Text slide visibility — JS controls display; CSS handles transition */
       .hero-text-slide {
         position: absolute;
         inset: 0;
-        display: flex;
+        display: none;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        visibility: hidden;
         opacity: 0;
-        transition: opacity 1s ease, visibility 0s 1s;
+        transition: opacity 1s ease;
       }
       .hero-text-slide.is-active {
-        visibility: visible;
+        display: flex;
         opacity: 1;
-        transition: opacity 1s ease, visibility 0s 0s;
       }
 
       /* Shared base for primary heading */
@@ -66,7 +77,7 @@
       .slide-pharma-heading {
         font-family: "Playfair Display", Georgia, serif !important;
         font-weight: 600 !important;
-        font-size: clamp(30px, 4.8vw, 52px) !important;
+        font-size: clamp(32px, 5.5vw, 72px) !important;
         letter-spacing: 0.02em;
         line-height: 1.15;
         background: linear-gradient(90deg, #5DA9E9 0%, #8BC34A 100%);
@@ -110,50 +121,9 @@
         text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
       }
 
-      /* ── Slide 2: Lab / research (Montserrat + white/blue) ── */
-      .slide-lab-heading {
-        font-family: "Montserrat", "Poppins", sans-serif !important;
-        font-weight: 600 !important;
-        font-size: clamp(30px, 4.8vw, 52px) !important;
-        color: #ffffff !important;
-        -webkit-text-fill-color: #ffffff !important;
-        background: none !important;
-        letter-spacing: 3px;
-        line-height: 1.2;
-        filter: none;
-        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-      }
-      .slide-lab-highlight {
-        color: #5B86B5 !important;
-        -webkit-text-fill-color: #5B86B5 !important;
-        text-shadow: 0 0 20px rgba(91, 134, 181, 0.6), 0 0 40px rgba(91, 134, 181, 0.3);
-      }
-      .slide-lab-sub {
-        font-family: "Montserrat", "Poppins", sans-serif;
-        font-weight: 500;
-        font-size: clamp(17px, 2.4vw, 26px);
-        color: #E6EDF6;
-        letter-spacing: 2px;
-        line-height: 1.25;
-        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
-      }
-
-      .hero-text-inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        max-width: none;
-        padding: 32px 10%;
-        background: rgba(0, 0, 0, 0.35);
-        border-radius: 16px;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-      }
-
       @media (max-width: 900px) {
-        .hero-text-inner {
-          padding: 22px 24px;
+        .hero-copy--child {
+          padding: 28px 6%;
         }
       }
 
@@ -292,43 +262,20 @@
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-bg-layer hero-slide is-active" data-slide="0" style="background-image:url('handhero.jpg.jpeg')"></div>
         <div class="hero-bg-layer hero-slide" data-slide="1" style="background-image:url('child_hero.jpg')"></div>
-        <div class="hero-bg-layer hero-slide" data-slide="2" style="background-image:url('bhero.png')"></div>
-        <div class="hero-bg-layer hero-slide" data-slide="3" style="background-image:url('medicie.jpeg')"></div>
       </div>
 
-      <div class="hero-grid">
+      <div class="container hero-grid">
         <!-- Slide 0: Pharma / hand pills -->
-        <div class="hero-text-slide is-active" data-slide="0">
-          <div class="hero-text-inner">
-            <h1 class="slide-pharma-heading">Transforming Healthcare<br>Worldwide</h1>
-            <div class="hero-divider"></div>
-            <p class="slide-pharma-sub">Science-Driven.<br>Patient-Focused.</p>
-          </div>
+        <div class="hero-copy hero-copy--child hero-text-slide is-active" data-slide="0">
+          <h1 class="child-hero-primary slide-pharma-heading">Transforming Healthcare Worldwide</h1>
+          <div class="hero-divider"></div>
+          <p class="child-hero-secondary slide-pharma-sub">Science-Driven. Patient-Focused.</p>
         </div>
 
         <!-- Slide 1: Children playing -->
-        <div class="hero-text-slide" data-slide="1">
-          <div class="hero-text-inner">
-            <h1 class="slide-child-heading">Elevating Global<br>Healthcare</h1>
-            <p class="slide-child-sub">Precision Medicines.<br>Trusted Worldwide.</p>
-          </div>
-        </div>
-
-        <!-- Slide 2: Lab / research -->
-        <div class="hero-text-slide" data-slide="2">
-          <div class="hero-text-inner">
-            <h1 class="slide-lab-heading">Advancing Life-Saving<br><span class="slide-lab-highlight">Therapies</span></h1>
-            <p class="slide-lab-sub">Cutting-edge Research.<br>Improving Lives Globally.</p>
-          </div>
-        </div>
-
-        <!-- Slide 3: Medicine capsules -->
-        <div class="hero-text-slide" data-slide="3">
-          <div class="hero-text-inner">
-            <h1 class="slide-pharma-heading">Shaping the Future of<br>Healthcare</h1>
-            <div class="hero-divider"></div>
-            <p class="slide-pharma-sub">Innovation That Improves Lives.</p>
-          </div>
+        <div class="hero-copy hero-copy--child hero-text-slide" data-slide="1">
+          <h1 class="child-hero-primary slide-child-heading">Elevating Global<br>Healthcare</h1>
+          <p class="child-hero-secondary slide-child-sub">Precision Medicines.<br>Trusted Worldwide.</p>
         </div>
       </div>
     </section>
@@ -688,11 +635,29 @@
 
         function goToSlide(idx) {
           bgLayers.forEach((l) => l.classList.remove("is-active"));
-          textSlides.forEach(function(t) { t.classList.remove("is-active"); });
+          textSlides.forEach(function(t, i) {
+            t.classList.remove("is-active");
+            t.style.display = "none";
+            t.style.opacity = "0";
+          });
           bgLayers[idx].classList.add("is-active");
           textSlides[idx].classList.add("is-active");
+          textSlides[idx].style.display = "flex";
+          textSlides[idx].style.opacity = "1";
           current = idx;
+          // #region agent log
+          console.log('[DEBUG-HERO]', 'goToSlide', {idx:idx, slide0Display:textSlides[0].style.display, slide1Display:textSlides[1].style.display});
+          // #endregion
         }
+
+        // Set initial state explicitly via JS
+        textSlides.forEach(function(t, i) {
+          if (i === 0) { t.style.display = "flex"; t.style.opacity = "1"; }
+          else { t.style.display = "none"; t.style.opacity = "0"; }
+        });
+        // #region agent log
+        console.log('[DEBUG-HERO]', 'init', {bgCount:bgLayers.length, textCount:textSlides.length, slide0Display:textSlides[0].style.display, slide1Display:textSlides[1].style.display});
+        // #endregion
 
         setInterval(function () {
           goToSlide((current + 1) % total);
