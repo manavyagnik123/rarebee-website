@@ -34,7 +34,17 @@
         align-items: center;
         justify-content: center;
         padding: 0;
-        background: linear-gradient(135deg, #0b2a53 0%, #1b4fa3 50%, #2E7D64 100%);
+        background-image:
+          linear-gradient(
+            135deg,
+            rgba(11, 42, 83, 0.50) 0%,
+            rgba(27, 79, 163, 0.45) 50%,
+            rgba(46, 125, 100, 0.40) 100%
+          ),
+          url("./product_here.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
       }
@@ -52,52 +62,89 @@
         z-index: 1;
         text-align: center;
         width: 100%;
-        max-width: 800px;
-        padding: 140px 24px 40px;
+        max-width: 860px;
+        min-height: 100vh;
+        padding: 108px 24px 56px;
         box-sizing: border-box;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      .products-hero-label {
-        font-family: "Montserrat", "Poppins", sans-serif;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 3.5px;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 18px;
-      }
-
-      .products-hero h1 {
+      .products-hero-title {
         font-family: "Playfair Display", Georgia, serif;
         font-weight: 700;
-        font-size: clamp(38px, 6vw, 72px);
-        line-height: 1.1;
-        color: #ffffff;
-        margin-bottom: 20px;
+        line-height: 0.95;
+        margin: 0 0 12px;
+      }
+      .products-hero-title-accent {
+        display: block;
+        font-size: clamp(35px, 5.2vw, 69px);
+        font-style: italic;
+        color: #7ecf6a;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+      }
+      .products-hero-title-main {
+        display: block;
+        margin-top: -3px;
+        font-size: clamp(43px, 5.8vw, 83px);
+        font-style: italic;
+        color: #f3f6fb;
+        text-shadow: 0 3px 14px rgba(0, 0, 0, 0.35);
       }
 
       .products-hero-tagline {
-        font-family: "Playfair Display", Georgia, serif;
-        font-style: italic;
-        font-weight: 600;
-        font-size: clamp(18px, 2.5vw, 26px);
-        color: rgba(255, 255, 255, 0.92);
-        margin-bottom: 24px;
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: clamp(13px, 1.45vw, 21px);
+        font-weight: 500;
+        color: rgba(236, 242, 250, 0.95);
+        margin: 0;
       }
 
-      .products-hero-desc {
+      .products-hero-cta {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 176px;
+        padding: 8px 19px;
+        border-radius: 14px;
+        border: 1.5px solid rgba(196, 222, 255, 0.78);
+        background: linear-gradient(
+          180deg,
+          rgba(45, 123, 188, 0.72) 0%,
+          rgba(25, 79, 133, 0.72) 100%
+        );
+        color: #ffffff;
         font-family: "Montserrat", "Poppins", sans-serif;
-        font-size: clamp(14px, 1.6vw, 17px);
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.78);
-        line-height: 1.7;
-        margin-bottom: 32px;
+        font-size: clamp(13px, 1.5vw, 21px);
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+        box-shadow: 0 10px 24px rgba(10, 27, 56, 0.35);
+        backdrop-filter: blur(2px);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .products-hero-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(10, 27, 56, 0.42);
       }
 
       @media (max-width: 760px) {
         .products-hero { min-height: 100vh; }
-        .products-hero-center { padding: 80px 16px 40px; }
+        .products-hero-center {
+          padding: 48px 16px 40px;
+          min-height: 100vh;
+          justify-content: flex-end;
+        }
+        .products-hero-title-main { margin-top: -4px; }
+        .products-hero-cta {
+          min-width: 152px;
+          font-size: clamp(12px, 3.6vw, 16px);
+          margin-top: 48vh;
+          translate: 0 -8vh;
+        }
       }
 
       /* ── Domestic section: image left, text right ── */
@@ -246,17 +293,16 @@
     <!-- Hero -->
     <section class="products-hero reveal" aria-label="Products hero">
       <div class="products-hero-center">
-        <p class="products-hero-label">RAREBEE LIFESCIENCES</p>
-        <h1>Our Products</h1>
-        <p class="products-hero-tagline">150+ trusted pharmaceutical formulations.</p>
-        <p class="products-hero-desc">
-          From antibiotics to nutraceuticals, every product is manufactured<br>
-          under strict quality standards with global regulatory compliance.
-        </p>
+        <h1 class="products-hero-title">
+          <span class="products-hero-title-accent">Our</span>
+          <span class="products-hero-title-main">Product List</span>
+        </h1>
+        <p class="products-hero-tagline">Explore our products</p>
+        <a class="products-hero-cta" href="#domestic-products">Discover More</a>
       </div>
     </section>
 
-    <section class="section reveal">
+    <section id="domestic-products" class="section reveal">
       <div class="container">
         <div class="section-title center">
           <h2>Rarebee Lifesciences - Domestic</h2>
@@ -266,7 +312,7 @@
             <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
           </div>
           <div class="domestic-split-text">
-            <p>Rarebee Lifesciences is a pharmaceutical company that manufactures pharma products from a WHO-GMP certified plant. It works as a Propaganda Cum Distribution (PCD) company, with 150+ pharma products in the market including antibiotics, capsules, tablets, ointments, syrups, and injectables.</p>
+            <p>Rarebee Lifesciences was established in 2021 as a Propaganda Cum Distribution (PCD) Pharma Company in Ahmedabad, Gujarat. It offers approximately 150+ finished products in the domestic market, spanning a range of antibiotics, tablets, capsules, oral liquids, ointments, and injectables. All products are manufactured in WHO-GMP certified units and adhere to strict quality assurance standards.</p>
           </div>
         </div>
         <div style="text-align: center;">
@@ -281,6 +327,69 @@
         </div>
       </div>
     </section>
+
+
+    <section id="domestic-products" class="section reveal">
+      <div class="container">
+        <div class="section-title center">
+          <h2>Rarebee Lifesciences - Export</h2>
+        </div>
+        <div class="domestic-split">
+          <div class="domestic-split-img">
+            <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
+          </div>
+          <div class="domestic-split-text">
+           <p>Rarebee Pharma Pvt. Ltd.  is a leading manufacturing unit under the Rarebee Group, specializing in oral liquids and ointments. We provide third-party and contract manufacturing services to clients across the industry.</p><br>
+           <p>Our state-of-the-art plant is approved under Revised Schedule M, GMP certified, and has WHO certification in process. We maintain the highest quality standards with our in-house micro lab and QC Lab.</p>
+          </div>
+        </div>
+        <div style="text-align: center;">
+        <div class="discover-text">
+          <span>Discover our export product list</span>
+          <span class="discover-text-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section id="domestic-products" class="section reveal">
+      <div class="container">
+        <div class="section-title center">
+          <h2>Rarebee Pharma Pvt. Ltd. - Third Party Manufacturing</h2>
+        </div>
+        <div class="domestic-split">
+          <div class="domestic-split-img">
+            <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
+          </div>
+          <div class="domestic-split-text">
+           <p>Rarebee Lifesciences delivers third-party manufacturing products to international partners, providing fully finished goods complete with all required export documentation and rigorous quality assurance.</p><br>
+           <p>We partner with multiple WHO-GMP certified plants specializing in pharmaceuticals, cosmetics, nutraceuticals, and surgical products all are fully equipped for global exports with comprehensive documentation.
+          </p><br>
+           <p>As your one-stop solution, Rarebee Lifesciences simplifies sourcing, ensuring seamless quality and compliance for partners worldwide.</p>
+          </div>
+        </div>
+        <div style="text-align: center;">
+        <div class="discover-text">
+          <span>Discover our Third Party Manufacturing product list</span>
+          <span class="discover-text-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+
 
     <!-- Footer -->
     <footer id="contact-us" class="site-footer reveal">

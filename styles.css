@@ -1585,6 +1585,17 @@ footer.reveal {
 }
 
 /* ---------- Global presence: writing + read more + flag run + brochure ---------- */
+.gp-hero-inner {
+  /* Desktop-only: add extra left inset for hero text */
+  padding-left: 0;
+}
+
+@media (min-width: 761px) {
+  .gp-hero-inner {
+    padding-left: clamp(24px, 6vw, 140px);
+  }
+}
+
 .gp-writing {
   /* Match Facility section alignment/spacing on homepage */
   max-width: none;
