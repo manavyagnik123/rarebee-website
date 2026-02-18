@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products | RareBee Lifesciences</title>
+    <title>Products - RareBee Lifesciences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,43 +14,743 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CPlus+Jakarta+Sans:500&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap"
+    />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      body {
-        font-family: "Poppins", sans-serif;
+      html { overflow-x: hidden; }
+      body { font-family: "Poppins", sans-serif; overflow-x: hidden; }
+
+      /* ── Products Hero ── */
+      .products-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: linear-gradient(135deg, #0b2a53 0%, #1b4fa3 50%, #2E7D64 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .products-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(106, 191, 75, 0.15) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 30%, rgba(93, 169, 233, 0.12) 0%, transparent 50%);
+      }
+
+      .products-hero-center {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        width: 100%;
+        max-width: 800px;
+        padding: 140px 24px 40px;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+
+      .products-hero-label {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        margin-bottom: 18px;
+      }
+
+      .products-hero h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-weight: 700;
+        font-size: clamp(38px, 6vw, 72px);
+        line-height: 1.1;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .products-hero-tagline {
+        font-family: "Playfair Display", Georgia, serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: clamp(18px, 2.5vw, 26px);
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 24px;
+      }
+
+      .products-hero-desc {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: clamp(14px, 1.6vw, 17px);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .products-hero-btn {
+        display: inline-block;
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #ffffff;
+        border: 1.5px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 14px 36px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .products-hero-btn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.8);
+      }
+
+      @media (max-width: 760px) {
+        .products-hero { min-height: 100vh; }
+        .products-hero-center { padding: 80px 16px 40px; }
+      }
+
+      /* ── Product Intro ── */
+      .products-intro {
+        background: linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
+        padding: 60px 0 40px;
+      }
+      .products-intro .about-summary {
+        text-align: center;
+        padding: 0 8%;
+      }
+      .products-intro .about-summary p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--text-dark);
+        margin-bottom: 16px;
+      }
+
+      /* ── Filter Tabs ── */
+      .products-filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+      .filter-btn {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 10px 22px;
+        border: 1.5px solid #d4e2f5;
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      .filter-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: #f0f5fc;
+      }
+      .filter-btn.is-active {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+
+      /* ── Product Cards Grid ── */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 22px;
+        padding: 0 2%;
+      }
+
+      .product-card {
+        background: var(--white);
+        border: 1px solid #e0e8f5;
+        border-radius: 18px;
+        padding: 24px 22px 20px;
+        box-shadow: 0 8px 24px rgba(17, 31, 57, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 36px rgba(17, 31, 57, 0.12);
+      }
+
+      .product-card-category {
+        font-family: "Montserrat", "Poppins", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--secondary);
+        margin-bottom: 8px;
+      }
+
+      .product-card h3 {
+        font-family: "Plus Jakarta Sans", "Poppins", "Open Sans", sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 6px;
+        line-height: 1.3;
+      }
+
+      .product-card-composition {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 10px;
+        flex: 1;
+      }
+
+      .product-card-form {
+        display: inline-block;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--primary);
+        background: #f0f5fc;
+        border: 1px solid #d4e2f5;
+        padding: 4px 12px;
+        border-radius: 999px;
+        align-self: flex-start;
+      }
+
+      .product-card.is-hidden {
+        display: none;
+      }
+
+      /* ── No Results ── */
+      .no-results {
+        text-align: center;
+        padding: 48px 20px;
+        color: var(--text-muted);
+        font-size: 16px;
+        display: none;
+      }
+      .no-results.is-visible {
+        display: block;
+      }
+
+      /* ── Search Bar ── */
+      .products-search-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+      .products-search {
+        width: 100%;
+        max-width: 420px;
+        font-family: inherit;
+        font-size: 15px;
+        padding: 12px 18px;
+        border: 1.5px solid #d4e2f5;
+        border-radius: 12px;
+        background: var(--white);
+        color: var(--text-dark);
+        transition: border-color 0.2s ease;
+      }
+      .products-search:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(27, 79, 163, 0.1);
+      }
+      .products-search::placeholder {
+        color: var(--text-muted);
+      }
+
+      /* ── Products Section ── */
+      .products-listing {
+        padding: 40px 0 80px;
+        background: #f5f8fc;
+      }
+
+      /* ── Footer (shared) ── */
+      .footer-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 32px;
+      }
+      .footer-left {
+        flex-shrink: 0;
+        width: 220px;
+      }
+      .footer-address { margin-bottom: 8px; }
+      .footer-address h4 {
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+      .footer-address p {
+        color: rgba(238, 245, 255, 0.8);
+        font-size: 11px;
+        line-height: 1.45;
+        margin: 0;
+      }
+      .footer-right {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .footer-col { flex: 1; min-width: 0; }
+      .footer-col h4 {
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: rgba(238, 245, 255, 0.85);
+        font-size: 11.5px;
+        line-height: 1.8;
+        text-decoration: none;
+      }
+      .footer-contact-item:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .footer-contact-item svg { width: 12px; height: 12px; flex-shrink: 0; }
+      .footer-col--links a {
+        display: block;
+        color: rgba(238, 245, 255, 0.85);
+        font-size: 11.5px;
+        line-height: 1.9;
+        text-decoration: none;
+      }
+      .footer-col--links a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      @media (max-width: 900px) {
+        .footer-layout { flex-direction: column; gap: 16px; }
+        .footer-left { width: 100%; }
+        .footer-right { flex-wrap: wrap; padding-top: 0 !important; }
+        .footer-col { flex: unset; width: calc(50% - 12px); }
+      }
+      @media (max-width: 600px) {
+        .footer-col { width: 100%; }
+        .products-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
   <body>
-    <section class="section stats-section reveal">
-      <div class="container">
-        <div class="section-title">
-          <h2>Products</h2>
-        </div>
-        <p class="hero-sub">
-          All of this and more reflects the growth and success of Remus Pharmaceuticals
+
+    <a href="index.html" class="career-back" aria-label="Go back to home">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+
+    <!-- Hero -->
+    <section class="products-hero reveal" aria-label="Products hero">
+      <div class="products-hero-center">
+        <p class="products-hero-label">RAREBEE LIFESCIENCES</p>
+        <h1>Our Products</h1>
+        <p class="products-hero-tagline">150+ trusted pharmaceutical formulations.</p>
+        <p class="products-hero-desc">
+          From antibiotics to nutraceuticals, every product is manufactured<br>
+          under strict quality standards with global regulatory compliance.
         </p>
-        <div class="stats-grid">
-          <div class="stat reveal">
-            <span class="stat-value">1000</span>
-            <span class="stat-label">Group Company Employees</span>
-          </div>
-          <div class="stat reveal">
-            <span class="stat-value">150</span>
-            <span class="stat-label">Million dollars in group revenue for fiscal year 2023</span>
-          </div>
-          <div class="stat reveal">
-            <span class="stat-value">1200</span>
-            <span class="stat-label">CTD dossier</span>
-          </div>
-          <div class="stat reveal">
-            <span class="stat-value">40</span>
-            <span class="stat-label">Countries</span>
-          </div>
+        <a href="#products-list" class="products-hero-btn">Explore Products</a>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section reveal products-intro">
+      <div class="container">
+        <div class="section-title center">
+          <h2>Comprehensive Product Portfolio</h2>
+        </div>
+        <div class="about-summary">
+          <p>
+            Rarebee Lifesciences offers a wide range of pharmaceutical products spanning multiple therapeutic categories. Our portfolio includes tablets, capsules, syrups, ointments, injections, and more — all developed by expert pharmacists and manufactured at GMP-certified facilities.
+          </p>
+          <p>
+            We also provide contract manufacturing and third-party manufacturing services, enabling partners to develop and market products under their own brand.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- Product Listing -->
+    <section id="products-list" class="products-listing reveal">
+      <div class="container">
+        <div class="products-search-wrap">
+          <input
+            type="text"
+            class="products-search"
+            id="productSearch"
+            placeholder="Search products by name or composition..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="products-filter" id="productFilter">
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="antibiotic">Antibiotics</button>
+          <button class="filter-btn" data-filter="analgesic">Analgesics</button>
+          <button class="filter-btn" data-filter="gastrointestinal">Gastrointestinal</button>
+          <button class="filter-btn" data-filter="cardiovascular">Cardiovascular</button>
+          <button class="filter-btn" data-filter="dermatology">Dermatology</button>
+          <button class="filter-btn" data-filter="respiratory">Respiratory</button>
+          <button class="filter-btn" data-filter="nutraceutical">Nutraceuticals</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+
+          <!-- Antibiotics -->
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Amoxicillin Capsules</h3>
+            <p class="product-card-composition">Amoxicillin 500 mg</p>
+            <span class="product-card-form">Capsule</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Azithromycin Tablets</h3>
+            <p class="product-card-composition">Azithromycin 500 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Cefixime Tablets</h3>
+            <p class="product-card-composition">Cefixime 200 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Ciprofloxacin Tablets</h3>
+            <p class="product-card-composition">Ciprofloxacin 500 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Levofloxacin Tablets</h3>
+            <p class="product-card-composition">Levofloxacin 500 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Metronidazole Tablets</h3>
+            <p class="product-card-composition">Metronidazole 400 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Doxycycline Capsules</h3>
+            <p class="product-card-composition">Doxycycline 100 mg</p>
+            <span class="product-card-form">Capsule</span>
+          </div>
+          <div class="product-card" data-category="antibiotic">
+            <span class="product-card-category">Antibiotic</span>
+            <h3>Cefpodoxime Proxetil Tablets</h3>
+            <p class="product-card-composition">Cefpodoxime Proxetil 200 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+
+          <!-- Analgesics -->
+          <div class="product-card" data-category="analgesic">
+            <span class="product-card-category">Analgesic</span>
+            <h3>Paracetamol Tablets</h3>
+            <p class="product-card-composition">Paracetamol 500 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="analgesic">
+            <span class="product-card-category">Analgesic</span>
+            <h3>Ibuprofen Tablets</h3>
+            <p class="product-card-composition">Ibuprofen 400 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="analgesic">
+            <span class="product-card-category">Analgesic</span>
+            <h3>Aceclofenac &amp; Paracetamol Tablets</h3>
+            <p class="product-card-composition">Aceclofenac 100 mg + Paracetamol 325 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="analgesic">
+            <span class="product-card-category">Analgesic</span>
+            <h3>Diclofenac Sodium Tablets</h3>
+            <p class="product-card-composition">Diclofenac Sodium 50 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="analgesic">
+            <span class="product-card-category">Analgesic</span>
+            <h3>Nimesulide &amp; Paracetamol Tablets</h3>
+            <p class="product-card-composition">Nimesulide 100 mg + Paracetamol 325 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+
+          <!-- Gastrointestinal -->
+          <div class="product-card" data-category="gastrointestinal">
+            <span class="product-card-category">Gastrointestinal</span>
+            <h3>Pantoprazole Tablets</h3>
+            <p class="product-card-composition">Pantoprazole 40 mg (Enteric Coated)</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="gastrointestinal">
+            <span class="product-card-category">Gastrointestinal</span>
+            <h3>Omeprazole Capsules</h3>
+            <p class="product-card-composition">Omeprazole 20 mg</p>
+            <span class="product-card-form">Capsule</span>
+          </div>
+          <div class="product-card" data-category="gastrointestinal">
+            <span class="product-card-category">Gastrointestinal</span>
+            <h3>Rabeprazole &amp; Domperidone Capsules</h3>
+            <p class="product-card-composition">Rabeprazole 20 mg + Domperidone 30 mg SR</p>
+            <span class="product-card-form">Capsule</span>
+          </div>
+          <div class="product-card" data-category="gastrointestinal">
+            <span class="product-card-category">Gastrointestinal</span>
+            <h3>Ondansetron Tablets</h3>
+            <p class="product-card-composition">Ondansetron 4 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="gastrointestinal">
+            <span class="product-card-category">Gastrointestinal</span>
+            <h3>Sucralfate Suspension</h3>
+            <p class="product-card-composition">Sucralfate 1 g / 10 ml + Oxetacaine</p>
+            <span class="product-card-form">Syrup</span>
+          </div>
+
+          <!-- Cardiovascular -->
+          <div class="product-card" data-category="cardiovascular">
+            <span class="product-card-category">Cardiovascular</span>
+            <h3>Amlodipine Tablets</h3>
+            <p class="product-card-composition">Amlodipine 5 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="cardiovascular">
+            <span class="product-card-category">Cardiovascular</span>
+            <h3>Atorvastatin Tablets</h3>
+            <p class="product-card-composition">Atorvastatin 10 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="cardiovascular">
+            <span class="product-card-category">Cardiovascular</span>
+            <h3>Telmisartan Tablets</h3>
+            <p class="product-card-composition">Telmisartan 40 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="cardiovascular">
+            <span class="product-card-category">Cardiovascular</span>
+            <h3>Losartan Potassium Tablets</h3>
+            <p class="product-card-composition">Losartan Potassium 50 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="cardiovascular">
+            <span class="product-card-category">Cardiovascular</span>
+            <h3>Clopidogrel Tablets</h3>
+            <p class="product-card-composition">Clopidogrel 75 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+
+          <!-- Dermatology -->
+          <div class="product-card" data-category="dermatology">
+            <span class="product-card-category">Dermatology</span>
+            <h3>Clotrimazole Cream</h3>
+            <p class="product-card-composition">Clotrimazole 1% w/w</p>
+            <span class="product-card-form">Ointment</span>
+          </div>
+          <div class="product-card" data-category="dermatology">
+            <span class="product-card-category">Dermatology</span>
+            <h3>Ketoconazole Cream</h3>
+            <p class="product-card-composition">Ketoconazole 2% w/w</p>
+            <span class="product-card-form">Ointment</span>
+          </div>
+          <div class="product-card" data-category="dermatology">
+            <span class="product-card-category">Dermatology</span>
+            <h3>Betamethasone &amp; Neomycin Cream</h3>
+            <p class="product-card-composition">Betamethasone 0.1% + Neomycin 0.5%</p>
+            <span class="product-card-form">Ointment</span>
+          </div>
+          <div class="product-card" data-category="dermatology">
+            <span class="product-card-category">Dermatology</span>
+            <h3>Mupirocin Ointment</h3>
+            <p class="product-card-composition">Mupirocin 2% w/w</p>
+            <span class="product-card-form">Ointment</span>
+          </div>
+
+          <!-- Respiratory -->
+          <div class="product-card" data-category="respiratory">
+            <span class="product-card-category">Respiratory</span>
+            <h3>Montelukast &amp; Levocetirizine Tablets</h3>
+            <p class="product-card-composition">Montelukast 10 mg + Levocetirizine 5 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="respiratory">
+            <span class="product-card-category">Respiratory</span>
+            <h3>Ambroxol &amp; Guaifenesin Syrup</h3>
+            <p class="product-card-composition">Ambroxol 30 mg + Guaifenesin 50 mg / 5 ml</p>
+            <span class="product-card-form">Syrup</span>
+          </div>
+          <div class="product-card" data-category="respiratory">
+            <span class="product-card-category">Respiratory</span>
+            <h3>Cetirizine Tablets</h3>
+            <p class="product-card-composition">Cetirizine Hydrochloride 10 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="respiratory">
+            <span class="product-card-category">Respiratory</span>
+            <h3>Salbutamol Syrup</h3>
+            <p class="product-card-composition">Salbutamol 2 mg / 5 ml</p>
+            <span class="product-card-form">Syrup</span>
+          </div>
+
+          <!-- Nutraceuticals -->
+          <div class="product-card" data-category="nutraceutical">
+            <span class="product-card-category">Nutraceutical</span>
+            <h3>Multivitamin &amp; Multimineral Tablets</h3>
+            <p class="product-card-composition">Vitamins A, B-complex, C, D, E + Zinc, Iron, Calcium</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="nutraceutical">
+            <span class="product-card-category">Nutraceutical</span>
+            <h3>Calcium &amp; Vitamin D3 Tablets</h3>
+            <p class="product-card-composition">Calcium Carbonate 500 mg + Vitamin D3 250 IU</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="nutraceutical">
+            <span class="product-card-category">Nutraceutical</span>
+            <h3>Iron &amp; Folic Acid Syrup</h3>
+            <p class="product-card-composition">Ferrous Ascorbate 30 mg + Folic Acid 550 mcg / 5 ml</p>
+            <span class="product-card-form">Syrup</span>
+          </div>
+          <div class="product-card" data-category="nutraceutical">
+            <span class="product-card-category">Nutraceutical</span>
+            <h3>Omega-3 Fatty Acid Capsules</h3>
+            <p class="product-card-composition">EPA 180 mg + DHA 120 mg</p>
+            <span class="product-card-form">Softgel Capsule</span>
+          </div>
+          <div class="product-card" data-category="nutraceutical">
+            <span class="product-card-category">Nutraceutical</span>
+            <h3>Protein Powder</h3>
+            <p class="product-card-composition">Protein 20 g + DHA + Vitamins &amp; Minerals (per serving)</p>
+            <span class="product-card-form">Powder</span>
+          </div>
+
+          <!-- Other -->
+          <div class="product-card" data-category="other">
+            <span class="product-card-category">Other</span>
+            <h3>Metformin Tablets</h3>
+            <p class="product-card-composition">Metformin Hydrochloride 500 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="other">
+            <span class="product-card-category">Other</span>
+            <h3>Prednisolone Tablets</h3>
+            <p class="product-card-composition">Prednisolone 10 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="other">
+            <span class="product-card-category">Other</span>
+            <h3>Fluconazole Tablets</h3>
+            <p class="product-card-composition">Fluconazole 150 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+          <div class="product-card" data-category="other">
+            <span class="product-card-category">Other</span>
+            <h3>Albendazole Tablets</h3>
+            <p class="product-card-composition">Albendazole 400 mg</p>
+            <span class="product-card-form">Tablet</span>
+          </div>
+
+        </div>
+
+        <p class="no-results" id="noResults">No products found matching your search.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact-us" class="site-footer reveal">
+      <div class="container">
+        <div>
+          <img src="./logowhite.png" alt="RareBee Lifesciences" style="width: 90px; height: auto; margin-left: -6px;" />
+        </div>
+
+        <div class="footer-layout">
+          <div class="footer-left">
+            <div class="footer-address">
+              <h4>Corporate Office</h4>
+              <p>E-404, Ganesh Glory 11, Near Money Plant, S.G Highway, Ahmedabad, Gujarat 382470</p>
+            </div>
+            <div class="footer-address">
+              <h4>Manufacturing Unit</h4>
+              <p>16, Swagat Industrial Park, Opp. Dharti Appolo, Chhatral, Dhanot, Gujarat 382729</p>
+            </div>
+          </div>
+
+          <div class="footer-right">
+            <div class="footer-col">
+              <h4>Domestic</h4>
+              <a class="footer-contact-item" href="tel:+919898525796">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+                +91 9898525796
+              </a>
+              <a class="footer-contact-item" href="mailto:rarebeelifesciences@yahoo.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+                rarebeelifesciences@yahoo.com
+              </a>
+            </div>
+
+            <div class="footer-col">
+              <h4>Export</h4>
+              <a class="footer-contact-item" href="tel:+919898555847">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+                +91 9898555847
+              </a>
+              <a class="footer-contact-item" href="mailto:Export@rarebeegroup.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+                Export@rarebeegroup.com
+              </a>
+            </div>
+
+            <div class="footer-col">
+              <h4>For Third Party Manufacturing</h4>
+              <a class="footer-contact-item" href="tel:+919104458080">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
+                +91 9104458080
+              </a>
+              <a class="footer-contact-item" href="mailto:sales@rarebeepharma.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg>
+                sales@rarebeepharma.com
+              </a>
+            </div>
+
+            <div class="footer-col footer-col--links">
+              <h4>Quick links</h4>
+              <a href="index.html#about-us">About</a>
+              <a href="products.html">Products</a>
+              <a href="units.html">Facility</a>
+              <a href="global-presence.html">Global Presence</a>
+              <a href="career.html">Careers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
     <a
       class="whatsapp-float"
       href="https://wa.me/9107929999857"
@@ -61,11 +761,13 @@
       <img src="assets/whatsapp_float.png" alt="" aria-hidden="true" loading="lazy" />
       <span class="sr-only">WhatsApp</span>
     </a>
+
     <script>
+      // Reveal animation
       const revealItems = Array.from(document.querySelectorAll(".reveal"));
       revealItems.forEach((item, index) => {
         const delay = Math.min(index * 70, 420);
-        item.style.setProperty("--reveal-delay", `${delay}ms`);
+        item.style.setProperty("--reveal-delay", delay + "ms");
       });
 
       const revealObserver = new IntersectionObserver(
@@ -80,8 +782,52 @@
         },
         { threshold: 0.2 }
       );
-
       revealItems.forEach((item) => revealObserver.observe(item));
+
+      // Product filtering & search
+      (function () {
+        var cards = Array.from(document.querySelectorAll(".product-card"));
+        var filterBtns = Array.from(document.querySelectorAll(".filter-btn"));
+        var searchInput = document.getElementById("productSearch");
+        var noResults = document.getElementById("noResults");
+        var activeFilter = "all";
+
+        function applyFilters() {
+          var query = searchInput.value.trim().toLowerCase();
+          var visibleCount = 0;
+
+          cards.forEach(function (card) {
+            var matchesCategory =
+              activeFilter === "all" || card.dataset.category === activeFilter;
+            var text = card.textContent.toLowerCase();
+            var matchesSearch = !query || text.indexOf(query) !== -1;
+
+            if (matchesCategory && matchesSearch) {
+              card.classList.remove("is-hidden");
+              visibleCount++;
+            } else {
+              card.classList.add("is-hidden");
+            }
+          });
+
+          if (visibleCount === 0) {
+            noResults.classList.add("is-visible");
+          } else {
+            noResults.classList.remove("is-visible");
+          }
+        }
+
+        filterBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            filterBtns.forEach(function (b) { b.classList.remove("is-active"); });
+            btn.classList.add("is-active");
+            activeFilter = btn.dataset.filter;
+            applyFilters();
+          });
+        });
+
+        searchInput.addEventListener("input", applyFilters);
+      })();
     </script>
   </body>
 </html>
