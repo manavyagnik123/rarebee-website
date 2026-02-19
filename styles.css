@@ -184,10 +184,10 @@ a {
   border: 0;
   background: transparent;
   display: none;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   position: relative;
 }
@@ -202,27 +202,42 @@ a {
 }
 
 .nav-toggle span {
-  width: 20px;
-  height: 2px;
-  background: #0f2f5b;
   display: block;
+  height: 2.5px;
   border-radius: 999px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  background: #0f2f5b;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1),
+              opacity 0.3s ease,
+              width 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+  transform-origin: center;
 }
 
-.nav-toggle .nav-toggle-x {
-  display: none;
-  position: absolute;
-  color: #0f2f5b;
+.nav-toggle span:nth-child(1) { width: 24px; }
+.nav-toggle span:nth-child(2) { width: 24px; }
+.nav-toggle span:nth-child(3) { width: 16px; }
+
+.nav-toggle:hover span:nth-child(3) {
+  width: 24px;
 }
 
-.nav-open .nav-toggle span {
+.nav-open .nav-toggle {
+  align-items: center;
+}
+
+.nav-open .nav-toggle span:nth-child(1) {
+  width: 24px;
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.nav-open .nav-toggle span:nth-child(2) {
   opacity: 0;
-  pointer-events: none;
+  width: 0;
+  transform: scaleX(0);
 }
 
-.nav-open .nav-toggle .nav-toggle-x {
-  display: block;
+.nav-open .nav-toggle span:nth-child(3) {
+  width: 24px;
+  transform: translateY(-8.5px) rotate(-45deg);
 }
 
 .nav-overlay {
@@ -1240,22 +1255,8 @@ footer.reveal {
     display: inline-flex;
   }
 
-  /* Make hamburger icon white on mobile */
   .nav-toggle span {
     background: #ffffff;
-  }
-
-  .nav-toggle .nav-toggle-x {
-    color: #ffffff;
-  }
-
-  .nav-open .nav-toggle .nav-toggle-x {
-    color: #ffffff;
-  }
-
-  .nav-open .nav-toggle:hover .nav-toggle-x,
-  .nav-open .nav-toggle:focus .nav-toggle-x {
-    color: #ffffff;
   }
 
   .brand img {
@@ -1305,6 +1306,34 @@ footer.reveal {
   }
 }
 
+/* ---------- Back button for subpages ---------- */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  color: var(--primary-dark);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #ffffff;
+  transform: translateX(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+.back-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ---------- Subpage header: desktop nav only, hide on mobile ---------- */
 .subpage-header .main-nav {
   position: static;
@@ -1317,6 +1346,15 @@ footer.reveal {
   transform: none;
   transition: none;
   overflow: visible;
+}
+
+.subpage-header--nologo .header-content {
+  justify-content: center;
+}
+.subpage-header--nologo .main-nav {
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 0;
 }
 
 @media (max-width: 900px) {

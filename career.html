@@ -178,12 +178,15 @@
     </style>
   </head>
   <body class="career-page">
-    <header class="site-header subpage-header">
+    <header class="site-header">
       <div class="container header-content">
-        <div class="brand">
-          <a href="index.html"><img src="./logo.png" alt="RareBee Lifesciences" /></a>
-        </div>
+        <a href="index.html" class="back-btn" aria-label="Back to home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </a>
         <nav class="main-nav" id="siteNav">
+          <button class="nav-close-btn" onclick="document.querySelector('.nav-toggle').click()" aria-label="Close menu">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
           <a href="index.html#about-us">About Us</a>
           <a href="products.html">Product list</a>
           <a href="units.html">Facility</a>
@@ -191,7 +194,15 @@
           <a href="career.html">Careers</a>
           <a href="index.html#contact-us">Contact us</a>
         </nav>
+        <div class="header-actions">
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
+      <div class="nav-overlay" data-nav-close></div>
     </header>
 
     <section class="career-hero reveal">
@@ -342,6 +353,19 @@
       );
       revealItems.forEach((item) => revealObserver.observe(item));
 
+      /* ── Mobile nav toggle ── */
+      (function () {
+        var toggle = document.querySelector(".nav-toggle");
+        var overlay = document.querySelector(".nav-overlay");
+        var links = document.querySelectorAll(".main-nav a");
+        if (!toggle) return;
+        function close() { document.body.classList.remove("nav-open"); toggle.setAttribute("aria-expanded","false"); }
+        function open()  { document.body.classList.add("nav-open");    toggle.setAttribute("aria-expanded","true"); }
+        toggle.addEventListener("click", function () { document.body.classList.contains("nav-open") ? close() : open(); });
+        if (overlay) overlay.addEventListener("click", close);
+        links.forEach(function (l) { l.addEventListener("click", close); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+      })();
     </script>
   </body>
 </html>
