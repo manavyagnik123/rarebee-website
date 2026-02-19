@@ -208,6 +208,23 @@
         50% { transform: translateX(5px); }
       }
 
+      .domestic-heading-underline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      .domestic-heading-underline::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 55%;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #1b4fa3 0%, #2e7d64 35%, #6abf4b 100%);
+      }
+
       /* ── Footer (shared) ── */
       .footer-layout {
         display: flex;
@@ -305,88 +322,89 @@
     <section id="domestic-products" class="section reveal">
       <div class="container">
         <div class="section-title center">
-          <h2>Rarebee Lifesciences - Domestic</h2>
+          <h2 class="domestic-heading-underline">Rarebee Lifesciences - Domestic</h2>
         </div>
         <div class="domestic-split">
           <div class="domestic-split-img">
-            <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
+            <img src="domestic_image.jpeg" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
           </div>
           <div class="domestic-split-text">
             <p>Rarebee Lifesciences was established in 2021 as a Propaganda Cum Distribution (PCD) Pharma Company in Ahmedabad, Gujarat. It offers approximately 150+ finished products in the domestic market, spanning a range of antibiotics, tablets, capsules, oral liquids, ointments, and injectables. All products are manufactured in WHO-GMP certified units and adhere to strict quality assurance standards.</p>
+            <div style="text-align: center;">
+              <div class="discover-text">
+                <span>Discover our domestic product list</span>
+                <span class="discover-text-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div style="text-align: center;">
-        <div class="discover-text">
-          <span>Discover our domestic product list</span>
-          <span class="discover-text-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
         </div>
       </div>
     </section>
 
 
-    <section id="domestic-products" class="section reveal">
+    <section id="export-products" class="section reveal">
       <div class="container">
         <div class="section-title center">
-          <h2>Rarebee Lifesciences - Export</h2>
+          <h2 class="domestic-heading-underline">Rarebee Lifesciences - Export</h2>
         </div>
         <div class="domestic-split">
           <div class="domestic-split-img">
             <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
           </div>
           <div class="domestic-split-text">
-           <p>Rarebee Pharma Pvt. Ltd.  is a leading manufacturing unit under the Rarebee Group, specializing in oral liquids and ointments. We provide third-party and contract manufacturing services to clients across the industry.</p><br>
-           <p>Our state-of-the-art plant is approved under Revised Schedule M, GMP certified, and has WHO certification in process. We maintain the highest quality standards with our in-house micro lab and QC Lab.</p>
+            <p>Rarebee Lifesciences delivers third-party manufacturing products to international partners, providing fully finished goods complete with all required export documentation and rigorous quality assurance.</p><br>
+            <p>We partner with multiple WHO-GMP certified plants specializing in pharmaceuticals, cosmetics, nutraceuticals, and surgical products all are fully equipped for global exports with comprehensive documentation.</p><br>
+            <p>As your one-stop solution, Rarebee Lifesciences simplifies sourcing, ensuring seamless quality and compliance for partners worldwide.</p>
+            <div style="text-align: center;">
+              <div class="discover-text">
+                <span>Discover our export product list</span>
+                <span class="discover-text-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div style="text-align: center;">
-        <div class="discover-text">
-          <span>Discover our export product list</span>
-          <span class="discover-text-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
         </div>
       </div>
     </section>
 
 
-
-
-    <section id="domestic-products" class="section reveal">
+    <section id="thirdparty-products" class="section reveal">
       <div class="container">
         <div class="section-title center">
-          <h2>Rarebee Pharma Pvt. Ltd. - Third Party Manufacturing</h2>
+          <h2 class="domestic-heading-underline">Rarebee Pharma Pvt. Ltd. - Third Party Manufacturing</h2>
         </div>
         <div class="domestic-split">
           <div class="domestic-split-img">
             <img src="assets/products-pharma.png" alt="Rarebee Lifesciences pharmaceutical products" loading="lazy" />
           </div>
           <div class="domestic-split-text">
-           <p>Rarebee Lifesciences delivers third-party manufacturing products to international partners, providing fully finished goods complete with all required export documentation and rigorous quality assurance.</p><br>
-           <p>We partner with multiple WHO-GMP certified plants specializing in pharmaceuticals, cosmetics, nutraceuticals, and surgical products all are fully equipped for global exports with comprehensive documentation.
-          </p><br>
-           <p>As your one-stop solution, Rarebee Lifesciences simplifies sourcing, ensuring seamless quality and compliance for partners worldwide.</p>
+            <p>Rarebee Pharma Pvt. Ltd. is a leading manufacturing unit under the Rarebee Group, specializing in oral liquids and ointments. We provide third-party and contract manufacturing services to clients across the industry.</p><br>
+            <p>Our state-of-the-art plant is approved under Revised Schedule M, GMP certified, and has WHO certification in process. We maintain the highest quality standards with our in-house micro lab and QC Lab.</p>
+            <div style="text-align: center;">
+              <div class="discover-text">
+                <span>Discover our Third Party Manufacturing product list</span>
+                <span class="discover-text-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div style="text-align: center;">
-        <div class="discover-text">
-          <span>Discover our Third Party Manufacturing product list</span>
-          <span class="discover-text-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
         </div>
       </div>
     </section>
+
+
+
+ 
 
 
 
