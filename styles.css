@@ -1378,8 +1378,10 @@ footer.reveal {
   z-index: 5;
   display: flex;
   justify-content: flex-end;
-  gap: 26px;
-  padding: 0 clamp(24px, 3vw, 48px);
+  gap: 14px;
+  width: min(1280px, 99.5%);
+  margin: 0 auto;
+  padding: 8px 0;
   font-size: 18px;
   font-weight: 600;
 }
