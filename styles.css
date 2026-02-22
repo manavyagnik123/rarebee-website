@@ -115,7 +115,6 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-left: auto;
 }
 
 .main-nav {
@@ -1269,6 +1268,10 @@ footer.reveal {
   .nav-close-btn:focus-visible {
     outline: 2px solid rgba(255, 255, 255, 0.6);
     outline-offset: 4px;
+  }
+
+  .header-actions {
+    margin-left: auto;
   }
 
   .nav-toggle {
