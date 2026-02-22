@@ -139,6 +139,13 @@ a {
   color: #0b2a53;
 }
 
+/* Subpage nav: nudge down on desktop (header is inside a <section> on subpages) */
+@media (min-width: 901px) {
+  section > .site-header .main-nav {
+    margin-top: 0.65vw;
+  }
+}
+
 /* Desktop header hover: pill + underline (no mobile impact) */
 @media (min-width: 901px) {
   .main-nav a {
