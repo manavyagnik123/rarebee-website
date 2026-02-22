@@ -539,11 +539,11 @@
         var overlay = document.querySelector(".nav-overlay");
         var links = document.querySelectorAll(".main-nav a");
         if (!toggle) return;
-        function close() { document.body.classList.remove("nav-open"); toggle.setAttribute("aria-expanded","false"); }
+        function close() { document.body.classList.remove("nav-open"); toggle.setAttribute("aria-expanded","false"); links.forEach(function (l) { l.classList.remove("nav-link-active"); }); }
         function open()  { document.body.classList.add("nav-open");    toggle.setAttribute("aria-expanded","true"); }
         toggle.addEventListener("click", function () { document.body.classList.contains("nav-open") ? close() : open(); });
         if (overlay) overlay.addEventListener("click", close);
-        links.forEach(function (l) { l.addEventListener("click", close); });
+        links.forEach(function (l) { l.addEventListener("click", function () { l.classList.add("nav-link-active"); setTimeout(close, 350); }); });
         document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
       })();
     </script>

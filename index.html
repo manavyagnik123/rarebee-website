@@ -99,16 +99,20 @@
 
       /* ════════════════════════════════════════════════
          SLIDE 1 — "Elastic Swing"
-         Heading bounces from the right, subtitle
-         bounces from the left — playful, energetic
+         Heading bounces from the right, divider wipes,
+         subtitle bounces from the left
          ════════════════════════════════════════════════ */
       [data-slide="1"] .hero-text-inner > *:nth-child(1) { transform: translateX(60px) rotate(2deg); }
-      [data-slide="1"] .hero-text-inner > *:nth-child(2) { transform: translateX(-60px) rotate(-2deg); }
+      [data-slide="1"] .hero-text-inner > *:nth-child(2) { transform: scaleX(0); }
+      [data-slide="1"] .hero-text-inner > *:nth-child(3) { transform: translateX(-60px) rotate(-2deg); }
       [data-slide="1"].is-active .hero-text-inner > *:nth-child(1) {
         animation: s1FromRight 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
       }
       [data-slide="1"].is-active .hero-text-inner > *:nth-child(2) {
-        animation: s1FromLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s forwards;
+        animation: s0Divider 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+      }
+      [data-slide="1"].is-active .hero-text-inner > *:nth-child(3) {
+        animation: s1FromLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s forwards;
       }
       @keyframes s1FromRight {
         0%   { opacity: 0; transform: translateX(60px) rotate(2deg); }
@@ -123,10 +127,15 @@
 
       /* ════════════════════════════════════════════════
          SLIDE 2 — "Clip Reveal"
-         Text reveals left-to-right behind a clip mask
-         — sharp, scientific, precise
+         Text reveals left-to-right behind a clip mask,
+         divider wipes — sharp, scientific, precise
          ════════════════════════════════════════════════ */
-      [data-slide="2"] .hero-text-inner > * {
+      [data-slide="2"] .hero-text-inner > *:nth-child(1) {
+        clip-path: inset(0 100% 0 0);
+        transform: none;
+      }
+      [data-slide="2"] .hero-text-inner > *:nth-child(2) { transform: scaleX(0); }
+      [data-slide="2"] .hero-text-inner > *:nth-child(3) {
         clip-path: inset(0 100% 0 0);
         transform: none;
       }
@@ -134,7 +143,10 @@
         animation: s2Reveal 0.8s cubic-bezier(0.77, 0, 0.18, 1) 0.1s forwards;
       }
       [data-slide="2"].is-active .hero-text-inner > *:nth-child(2) {
-        animation: s2Reveal 0.8s cubic-bezier(0.77, 0, 0.18, 1) 0.4s forwards;
+        animation: s0Divider 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+      }
+      [data-slide="2"].is-active .hero-text-inner > *:nth-child(3) {
+        animation: s2Reveal 0.8s cubic-bezier(0.77, 0, 0.18, 1) 0.65s forwards;
       }
       @keyframes s2Reveal {
         0%   { opacity: 1; clip-path: inset(0 100% 0 0); }
@@ -425,16 +437,18 @@
         <!-- Slide 1: Children playing -->
         <div class="hero-text-slide" data-slide="1">
           <div class="hero-text-inner">
-            <h1 class="slide-child-heading">Elevating Global<br>Healthcare</h1>
-            <p class="slide-child-sub">Precision Medicines.<br>Trusted Worldwide.</p>
+            <h1 class="slide-pharma-heading">Elevating Global<br>Healthcare</h1>
+            <div class="hero-divider"></div>
+            <p class="slide-pharma-sub">Precision Medicines.<br>Trusted Worldwide.</p>
           </div>
         </div>
 
         <!-- Slide 2: Lab / research -->
         <div class="hero-text-slide" data-slide="2">
           <div class="hero-text-inner">
-            <h1 class="slide-lab-heading">Advancing Life-Saving<br><span class="slide-lab-highlight">Therapies</span></h1>
-            <p class="slide-lab-sub">Cutting-edge Research.<br>Improving Lives Globally.</p>
+            <h1 class="slide-pharma-heading">Advancing Life-Saving<br>Therapies</h1>
+            <div class="hero-divider"></div>
+            <p class="slide-pharma-sub">Cutting-edge Research.<br>Improving Lives Globally.</p>
           </div>
         </div>
 
@@ -747,6 +761,7 @@
       const closeNav = () => {
         document.body.classList.remove("nav-open");
         navToggle.setAttribute("aria-expanded", "false");
+        navLinks.forEach((l) => l.classList.remove("nav-link-active"));
       };
 
       const openNav = () => {
@@ -763,7 +778,12 @@
       });
 
       navOverlay.addEventListener("click", closeNav);
-      navLinks.forEach((link) => link.addEventListener("click", closeNav));
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          link.classList.add("nav-link-active");
+          setTimeout(closeNav, 350);
+        });
+      });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {

@@ -116,6 +116,7 @@
       const closeNav = () => {
         document.body.classList.remove("nav-open");
         navToggle.setAttribute("aria-expanded", "false");
+        navLinks.forEach((l) => l.classList.remove("nav-link-active"));
       };
 
       const openNav = () => {
@@ -132,7 +133,12 @@
       });
 
       navOverlay.addEventListener("click", closeNav);
-      navLinks.forEach((link) => link.addEventListener("click", closeNav));
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          link.classList.add("nav-link-active");
+          setTimeout(closeNav, 350);
+        });
+      });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
