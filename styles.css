@@ -1405,6 +1405,17 @@ footer.reveal {
   }
 }
 
+body > .nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 20;
+}
+
+body > .nav-toggle span {
+  background: #ffffff;
+}
+
 /* ---------- Back button for subpages ---------- */
 .back-btn {
   position: fixed;
